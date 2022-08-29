@@ -12,8 +12,8 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
-    # @transaction = Transaction.new
-    # @books = Book.available.where(user: current_user).order(:title)
+    @transaction = Transaction.new
+    @books = Book.available.where(user: current_user).order(:title)
   end
 
   def new

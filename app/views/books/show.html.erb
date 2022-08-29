@@ -3,3 +3,13 @@
 <%= @book.author %>
 <%= @book.description %>
 <%= @book.user.id %>
+
+
+    <% if current_user.books.empty? %>
+    <h1>You dont have any books</h1>
+    <% else %>
+      <%= simple_form_for [@book, @transaction] do |f| %>
+        <%= f.association :buyer_book, collection: current_user.books, label_method: :title %>
+        <%= f.button :submit %>
+      <% end %>
+    <% end %>
