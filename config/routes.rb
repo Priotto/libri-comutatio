@@ -7,8 +7,11 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :books do
+    resources :transactions, only: [:create]
     collection do
       get :my
     end
   end
+
+  resources :transactions, only: [:index, :destroy, :update]
 end
