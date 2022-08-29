@@ -13,7 +13,7 @@ class BooksController < ApplicationController
   def show
     @book = Book.find(params[:id])
     # @transaction = Transaction.new
-    @books = Book.available.where(user: current_user).order(:title)
+    # @books = Book.available.where(user: current_user).order(:title)
   end
 
   def new
@@ -49,6 +49,10 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @book.destroy
     redirect_to books_path, status: :see_other
+  end
+
+  def my
+    @books = current_user.books
   end
 
   private
