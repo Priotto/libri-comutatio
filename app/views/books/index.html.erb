@@ -1,1 +1,13 @@
 <h1>Index do Book</h1>
+
+<% if @books.empty? %>
+  <div>
+    <p>O livro que você procura não está no nosso banco de dados</p>
+  </div>
+<% else %>
+  <div>
+  <% @books.each do |book| %>
+    <%= book.title %>
+  <% end %>
+  </div>
+<% end %>
