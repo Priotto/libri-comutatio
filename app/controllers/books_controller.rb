@@ -1,0 +1,72 @@
+class BooksController < ApplicationController
+  def index
+    @books = Book.available
+
+    #Editar query apenas na hora de implementar a busca
+    # if params[:query].present?
+    #   @books = Book.search_offers(params[:query])
+    # else
+    #   @books = Book.available
+    # end
+  end
+
+  def show
+    @book = Book.find(params[:id])
+    # @transaction = Transaction.new
+    @books = Book.available.where(user: current_user).order(:title)
+  end
+
+  def new
+    @book = Book.new
+  end
+
+  def create
+    @book = Book.new(book_params_new)
+    @book.user = current_user
+
+    if @book.save
+      redirect_to book_path(@book)
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def edit
+    @book = Book.find(params[:id])
+  end
+
+  def update
+    @book = Book.find(params[:id])
+
+    if @book.update(book_params_edit)
+      redirect_to book_path(@book)
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @book = Book.find(params[:id])
+    @book.destroy
+    redirect_to books_path, status: :see_other
+  end
+
+  private
+
+  def book_params_edit
+    params.require(:book).permit(:description)
+  end
+
+  def book_params_new
+    params.require(:book).permit(:title,
+                                 :author,
+                                 :photo,
+                                 :year,
+                                 :description,
+                                 :synopsis,
+                                 :rating,
+                                 :user_id,
+                                 :latitude,
+                                 :longitude)
+  end
+end
