@@ -1,8 +1,8 @@
 class TransactionsController < ApplicationController
 
   def index
-     @transactions = Transaction.where(seller: current_user).where(accepted: false)
-     @history_transactions = Transaction.where("seller_id = ? OR buyer_id = ?", current_user, current_user).where("accepted = ?", true)
+    @transactions = Transaction.where(seller: current_user).where(accepted: false)
+    @history_transactions = Transaction.where("seller_id = ? OR buyer_id = ?", current_user, current_user).where("accepted = ?", true)
   end
 
   def create
@@ -19,12 +19,13 @@ class TransactionsController < ApplicationController
     @transaction.buyer = buyer
     # Na transaction deve constar o card que está sendo "vendido".
     @transaction.seller_book = @book
+    chat = Chatroom.create!
     # Por default a transação não foi aceita: Accepted é false.
+    @transaction.transaction_chatroom = chat
 
     if @transaction.save
       flash[:notice] = "Trade request sent!"
-      redirect_to book_path(@book)
-      # redirect_to success_path, status: :see_other
+      redirect_to chatroom_path(chat)
     else
       render 'books/show', status: :unprocessable_entity
     end
