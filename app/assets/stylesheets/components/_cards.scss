@@ -1,0 +1,14 @@
+.social-card-header{
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 96px;
+}
+.social-card-header i {
+  font-size: 32px;
+  color:#FFF;
+}
