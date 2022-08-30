@@ -1,10 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
 
   resources :books do
     resources :transactions, only: [:create]
@@ -13,5 +9,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :transactions, only: [:index, :destroy, :update]
+  resources :transactions, only: %i[index destroy update]
+
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
 end
