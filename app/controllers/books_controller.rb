@@ -12,7 +12,7 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
-    @transaction = Transaction.new
+    @transaction = Trade.new
     @books = Book.available.where(user: current_user).order(:title)
   end
 
