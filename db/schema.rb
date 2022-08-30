@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_30_132808) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_30_161733) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -68,8 +68,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_132808) do
     t.bigint "buyer_id"
     t.bigint "seller_book_id"
     t.bigint "buyer_book_id"
+    t.bigint "chatroom_id", null: false
     t.index ["buyer_book_id"], name: "index_transactions_on_buyer_book_id"
     t.index ["buyer_id"], name: "index_transactions_on_buyer_id"
+    t.index ["chatroom_id"], name: "index_transactions_on_chatroom_id"
     t.index ["seller_book_id"], name: "index_transactions_on_seller_book_id"
     t.index ["seller_id"], name: "index_transactions_on_seller_id"
   end
@@ -101,6 +103,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_132808) do
   add_foreign_key "reviews", "users", column: "sender_id"
   add_foreign_key "transactions", "books", column: "buyer_book_id"
   add_foreign_key "transactions", "books", column: "seller_book_id"
+  add_foreign_key "transactions", "chatrooms"
   add_foreign_key "transactions", "users", column: "buyer_id"
   add_foreign_key "transactions", "users", column: "seller_id"
 end
