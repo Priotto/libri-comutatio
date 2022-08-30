@@ -3,13 +3,13 @@ Rails.application.routes.draw do
   root to: "pages#home"
 
   resources :books do
-    resources :transactions, only: [:create]
+    resources :trades, only: [:create]
     collection do
       get :my
     end
   end
 
-  resources :transactions, only: %i[index destroy update]
+  resources :trades, only: %i[index destroy update]
 
   resources :chatrooms, only: :show do
     resources :messages, only: :create
