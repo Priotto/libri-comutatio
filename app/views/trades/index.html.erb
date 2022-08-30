@@ -8,9 +8,9 @@
   <div>
   <% @transactions.each do |transaction| %>
     <%= transaction %>
-    <%= link_to "Apagar", transaction_path(transaction), method: :delete %>
-    <%= link_to "Delete", transaction_path(transaction), :method => :delete, data: {:confirm => "You sure?" , :turbo_method => :delete, :turbo => true} %>
-    <%= button_to "Aceitar", transaction_path(transaction), method: :patch %>
+    <%= link_to "Apagar", trade_path(transaction), method: :delete %>
+    <%= link_to "Delete", trade_path(transaction), :method => :delete, data: {:confirm => "You sure?" , :turbo_method => :delete, :turbo => true} %>
+    <%= button_to "Aceitar", trade_path(transaction), method: :patch %>
     <%= link_to "Chatroom", chatroom_path(transaction.chatroom) %>
 
   <% end %>
