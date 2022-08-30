@@ -5,9 +5,18 @@
     <p>O livro que você procura não está no nosso banco de dados</p>
   </div>
 <% else %>
-  <div>
+
+
+
+
+  <div class="container d-flex flex-wrap">
+    <%= render partial: "shared/card", collection: @books %>
+  </div>
+
   <% @books.each do |book| %>
     <%= book.title %>
   <% end %>
-  </div>
 <% end %>
+
+
+<%= render "shared/card" %>
