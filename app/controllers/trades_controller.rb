@@ -19,7 +19,7 @@ class TradesController < ApplicationController
     @transaction.buyer = buyer
     # Na transaction deve constar o card que está sendo "vendido".
     @transaction.seller_book = @book
-    chat = Chatroom.create!
+    chat = Chatroom.create
     # Por default a transação não foi aceita: Accepted é false.
     @transaction.chatroom = chat
 
@@ -42,18 +42,18 @@ class TradesController < ApplicationController
     buyer_book.trade!
     @transaction.save!
     # No need for app/views/restaurants/update.html.erb
-    redirect_to transactions_path
+    redirect_to trades_path
   end
 
   def destroy
     @transaction = Trade.find(params[:id])
     @transaction.destroy
-    redirect_to transactions_path, status: :see_other
+    redirect_to trades_path, status: :see_other
   end
 
   private
 
   def transaction_params
-    params.require(:transaction).permit(:buyer_book_id, :seller_book_id, :accepted)
+    params.require(:trade).permit(:buyer_book_id, :seller_book_id, :accepted)
   end
 end

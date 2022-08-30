@@ -1,4 +1,4 @@
 class Chatroom < ApplicationRecord
   has_many :messages
-  belongs_to :trade
+  # belongs_to :trade
 end
