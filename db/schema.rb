@@ -48,19 +48,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_161733) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.bigint "transaction_id", null: false
     t.text "content"
     t.integer "score"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "receiver_id", null: false
     t.bigint "sender_id", null: false
+    t.bigint "trade_id", null: false
     t.index ["receiver_id"], name: "index_reviews_on_receiver_id"
     t.index ["sender_id"], name: "index_reviews_on_sender_id"
-    t.index ["transaction_id"], name: "index_reviews_on_transaction_id"
+    t.index ["trade_id"], name: "index_reviews_on_trade_id"
   end
 
-  create_table "transactions", force: :cascade do |t|
+  create_table "trades", force: :cascade do |t|
     t.boolean "accepted", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -69,11 +69,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_161733) do
     t.bigint "seller_book_id"
     t.bigint "buyer_book_id"
     t.bigint "chatroom_id", null: false
-    t.index ["buyer_book_id"], name: "index_transactions_on_buyer_book_id"
-    t.index ["buyer_id"], name: "index_transactions_on_buyer_id"
-    t.index ["chatroom_id"], name: "index_transactions_on_chatroom_id"
-    t.index ["seller_book_id"], name: "index_transactions_on_seller_book_id"
-    t.index ["seller_id"], name: "index_transactions_on_seller_id"
+    t.index ["buyer_book_id"], name: "index_trades_on_buyer_book_id"
+    t.index ["buyer_id"], name: "index_trades_on_buyer_id"
+    t.index ["chatroom_id"], name: "index_trades_on_chatroom_id"
+    t.index ["seller_book_id"], name: "index_trades_on_seller_book_id"
+    t.index ["seller_id"], name: "index_trades_on_seller_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -98,12 +98,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_161733) do
   add_foreign_key "books", "users"
   add_foreign_key "messages", "chatrooms"
   add_foreign_key "messages", "users"
-  add_foreign_key "reviews", "transactions"
+  add_foreign_key "reviews", "trades"
   add_foreign_key "reviews", "users", column: "receiver_id"
   add_foreign_key "reviews", "users", column: "sender_id"
-  add_foreign_key "transactions", "books", column: "buyer_book_id"
-  add_foreign_key "transactions", "books", column: "seller_book_id"
-  add_foreign_key "transactions", "chatrooms"
-  add_foreign_key "transactions", "users", column: "buyer_id"
-  add_foreign_key "transactions", "users", column: "seller_id"
+  add_foreign_key "trades", "books", column: "buyer_book_id"
+  add_foreign_key "trades", "books", column: "seller_book_id"
+  add_foreign_key "trades", "chatrooms"
+  add_foreign_key "trades", "users", column: "buyer_id"
+  add_foreign_key "trades", "users", column: "seller_id"
 end
