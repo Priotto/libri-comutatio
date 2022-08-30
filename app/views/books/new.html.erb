@@ -4,3 +4,9 @@
     <%= f.input :description %>
     <%= f.button :submit %>
   <% end %>
+
+
+<%= f.input :title,
+  input_html: {data: {title_autocomplete_target: "title"}},
+  wrapper_html: {data: {controller: "title-autocomplete", title_api_key: ENV["BOOKS_API"]}}
+%>
