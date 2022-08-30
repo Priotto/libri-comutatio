@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
+  get '/autocomplete', to: 'books#autocomplete'
 
   resources :books do
     resources :trades, only: [:create]

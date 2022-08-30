@@ -12,3 +12,6 @@ application.register("hello", HelloController)
 
 import NavbarController from "./navbar_controller"
 application.register("navbar", NavbarController)
+
+//import AutocompleteController from "./autocomplete_controller.js.old"
+//application.register("autocomplete", AutocompleteController)

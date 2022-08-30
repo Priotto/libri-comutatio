@@ -1,22 +1,18 @@
 class Books < ApplicationService
-  attr_accessor :_title, :_author
+  attr_accessor :title
 
-  def initialize(_title, _author)
-    @title = _title
-    @author = _author
+  def initialize(title)
+    @title = title
     @key = ENV["BOOKS_API"]
   end
 
   def call
     unless @key.nil?
-      if @title.empty?
-        url = "https://www.googleapis.com/books/v1/volumes?q=+inauthor:#{@author}&key=#{@key}"
-      else
-        url = "https://www.googleapis.com/books/v1/volumes?q=+intitle:#{@title}&key=#{@key}"
-      end
+      url = "https://www.googleapis.com/books/v1/volumes?q=+intitle:#{@title}&key=#{@key}"
       uri = URI(url)
       fetch = Net::HTTP.get(uri)
-      JSON.parse(fetch)
+      response = JSON.parse(fetch)
+      digest(response)
     end
   end
 
@@ -24,9 +20,8 @@ class Books < ApplicationService
     books_list = []
     response["items"].each do |element|
       book = Hash.new
-
       book[:title] = element["volumeInfo"]["title"]
-      book[:author] = element["volumeInfo"]["author"].first
+      book[:author] = element["volumeInfo"]["authors"].first
       book[:publisher] = element["volumeInfo"]["publisher"]
       book[:published_date] = element["volumeInfo"]["publishedDate"]
       book[:thumbnail] = element["volumeInfo"]["imageLinks"]["smallThumbnail"]
