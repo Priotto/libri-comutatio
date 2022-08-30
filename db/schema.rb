@@ -48,7 +48,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_161733) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.bigint "transaction_id", null: false
     t.text "content"
     t.integer "score"
     t.datetime "created_at", null: false
@@ -97,7 +96,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_30_161733) do
   end
 
   add_foreign_key "books", "users"
-  add_foreign_key "reviews", "transactions", column: "order_id"
+  add_foreign_key "messages", "chatrooms"
+  add_foreign_key "messages", "users"
+  add_foreign_key "reviews", "trades"
   add_foreign_key "reviews", "users", column: "receiver_id"
   add_foreign_key "reviews", "users", column: "sender_id"
   add_foreign_key "trades", "books", column: "buyer_book_id"
