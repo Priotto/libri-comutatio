@@ -1,8 +1,8 @@
-<h1>Index do Book</h1>
+<h1>My Books</h1>
 
 <% if @books.empty? %>
   <div>
-    <p>The book you are looking for is not in our database</p>
+    <p>You don't have books to trade</p>
   </div>
 <% else %>
   <div class="container d-flex flex-wrap">
@@ -24,7 +24,3 @@
   </div>
   <% end %>
 <% end %>
-
-
-
- <%# <%= render partial: "shared/card", book: book %>
