@@ -1,4 +1,4 @@
-<div class="container chatroom" data-controller="chatroom-subscription"
+<div class="chatroom" data-controller="chatroom-subscription"
   data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>">
   <h1>#<%= @chatroom.name %></h1>
 
@@ -16,4 +16,3 @@
     wrapper_html: {class: "flex-grow-1"} %>
     <%= f.submit "Send", class: "btn btn-primary mb-3" %>
   <% end %>
-
