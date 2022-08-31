@@ -1,13 +1,10 @@
 class BooksController < ApplicationController
   def index
-    @books = Book.available
-
-    #Editar query apenas na hora de implementar a busca
-    # if params[:query].present?
-    #   @books = Book.search_offers(params[:query])
-    # else
-    #   @books = Book.available
-    # end
+    if params[:query].present?
+      @books = Book.search_offers(params[:query])
+    else
+      @books = Book.available
+    end
   end
 
   def show
