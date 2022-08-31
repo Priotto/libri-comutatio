@@ -10,4 +10,11 @@ class Book < ApplicationRecord
   def trade!
     self.update_attribute("available", false)
   end
+
+  include PgSearch::Model
+  pg_search_scope :search_books,
+  against: [ :title, :synopsis, :author, :year, :description, :rating ],
+  using: {
+    tsearch: { prefix: true }
+  }
 end
