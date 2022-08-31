@@ -14,7 +14,9 @@ class TradesController < ApplicationController
     @transaction.seller = seller
     @transaction.buyer = buyer
     @transaction.seller_book = @book
-    chat = Chatroom.create
+    chat = Chatroom.new
+    chat.name = "#{@book.title}"
+    chat.save
     @transaction.chatroom = chat
 
     if @transaction.save
@@ -35,7 +37,6 @@ class TradesController < ApplicationController
     seller_book.trade!
     buyer_book.trade!
     @transaction.save!
-    # No need for app/views/restaurants/update.html.erb
     redirect_to trades_path
   end
 

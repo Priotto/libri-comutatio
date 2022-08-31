@@ -4,9 +4,8 @@
 <%= @book.description %>
 <%= @book.user.id %>
 
-
-
 <% if current_user == @book.user %>
+  <%= link_to "Edit Book", edit_book_path(@book) %>
   <%= link_to "Browse books to trade", books_path %>
 <% else %>
     <% if current_user.books.empty? %>
