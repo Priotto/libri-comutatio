@@ -1,8 +1,8 @@
-<h1>Index do Book</h1>
+<h1>My Books</h1>
 
 <% if @books.empty? %>
   <div>
-    <p>The book you are looking for is not in our database</p>
+    <p>You don't have books to trade</p>
   </div>
 <% else %>
   <div class="container d-flex flex-wrap">
@@ -17,14 +17,10 @@
         </h6>
         <div class="mb-1 text-muted small"><%= book.user %></div>
           <p class="card-text mb-auto"><%= book.synopsis %></p>
-          <%= link_to "Trade this book", book_path(book), class: "btn btn-outline-primary btn-sm" %>
+          <%= link_to "Delete", book_path(book), :method => :delete, data: {:confirm => "You sure?" , :turbo_method => :delete, :turbo => true}, class: "btn btn-outline-primary btn-sm" %>
         </div>
         <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]" src=<%= book.photo %> style="width: 200px; height: 250px;">
     </div>
   </div>
   <% end %>
 <% end %>
-
-
-
- <%# <%= render partial: "shared/card", book: book %>
