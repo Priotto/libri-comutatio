@@ -27,6 +27,11 @@ class BooksController < ApplicationController
     end
   end
 
+  def build
+    @book = Book.new(build_params[:book])
+    raise
+  end
+
   def create
     @book = Book.new(book_params_new)
     @book.user = current_user
@@ -79,5 +84,9 @@ class BooksController < ApplicationController
                                  :user_id,
                                  :latitude,
                                  :longitude)
+  end
+
+  def build_params
+    params.permit(book: [:title, :author, :publisher, :synopsis, :published_date, :thumbnail])
   end
 end

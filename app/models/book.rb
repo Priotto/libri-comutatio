@@ -13,4 +13,9 @@ class Book < ApplicationRecord
     response = Books.call(title)
     return response
   end
+
+  def self.build(attr={})
+    book = Book.new(attr)
+    raise
+  end
 end
