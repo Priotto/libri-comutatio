@@ -1,22 +1,24 @@
-<h1>Index do Book</h1>
+<div class="container text-center">
+  <h1>Index do Book</h1>
 
-<% if @books.empty? %>
-  <div>
-    <p>O livro que você procura não está no nosso banco de dados</p>
-  </div>
-<% else %>
+  <% if @books.empty? %>
+    <div>
+      <p>O livro que você procura não está no nosso banco de dados</p>
+    </div>
+  <% else %>
 
 
 
 
-  <div class="container d-flex flex-wrap">
-    <%= render partial: "shared/card", collection: @books %>
-  </div>
+    <div class="container d-flex flex-wrap">
+      <%= render partial: "shared/card", collection: @books %>
+    </div>
 
-  <% @books.each do |book| %>
-    <%= book.title %>
+    <% @books.each do |book| %>
+      <%= book.title %>
+    <% end %>
   <% end %>
-<% end %>
 
 
-<%= render "shared/card" %>
+  <%= render "shared/card" %>
+</div>
