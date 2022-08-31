@@ -12,12 +12,18 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
+          <%# <li class="icon busca" name="fbusca" id="libusca">
+            <input type="text" placeholder="Busca" name="frm busca"
+            onkeypress="return clickButton(event);" onclick="lnkBusca('','','');"
+            id="txtBusca" class="focusBusca">
+          </li> %>
           <li class="nav-item active">
             <%= link_to "Offer a Book", "/books/new", class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "Browse Books", books_path, class: "nav-link" %>
           </li>
+
           <li class="nav-item dropdown">
             <%= image_tag "hamburger.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" id="li-bg" aria-labelledby="navbarDropdown">
@@ -35,3 +41,8 @@
     </div>
   </div>
 </div>
+
+
+
+
+
