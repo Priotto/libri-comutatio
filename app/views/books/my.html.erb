@@ -1,13 +1,13 @@
 <h1>My Books</h1>
 
-<% if @books.empty? %>
+<% if @books.available.empty? %>
   <div>
     <p>You don't have books to trade</p>
   </div>
 <% else %>
   <div class="container d-flex flex-wrap">
   </div>
-  <% @books.each do |book| %>
+  <% @books.available.each do |book| %>
   <div class="col-md-6">
     <div class="card flex-md-row mb-4 shadow-sm h-md-250">
       <div class="card-body d-flex flex-column align-items-start">

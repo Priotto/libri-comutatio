@@ -1,0 +1,8 @@
+<%= form_with url: books_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+    placeholder: "Search Books"
+  %>
+  <%= submit_tag "Search!", class: "btn btn-primary mr-3" %>
+<% end %>
