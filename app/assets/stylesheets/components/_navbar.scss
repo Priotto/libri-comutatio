@@ -2,7 +2,7 @@
   background-color: transparent;
   transition: 0.5s background-color ease;
   justify-content: space-between;
-  background: rgb(227, 146, 5);
+  background:#FFB200;
 }
 
 .navbar-white {
@@ -15,4 +15,12 @@
 
 .navbar .navbar-brand img {
   width: 40px;
+}
+
+.nav-link{
+  margin-right: 10px;
+}
+
+#li-bg{
+  background: linear-gradient(to right, rgba(255, 178, 0, 1), rgba(254, 139, 0, 0.4));
 }
