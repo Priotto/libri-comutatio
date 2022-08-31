@@ -4,3 +4,26 @@
     <%= f.input :description %>
     <%= f.button :submit %>
   <% end %>
+
+<div class="max-w-xs mx auto bg-white">
+
+  <div data-controller="autocomplete" data-autocomplete-url-value="/autocomplete">
+    <input type="text" class="w-full" data-autocomplete-target="input" placeholder="Type to search..."/>
+    <ul data-autocomplete-target="results"></ul>
+  </div>
+</div>
+
+<div class="mb-5">
+  <label for="simple-input" class="form-label">Select a Book</label>
+  <div data-controller="autocomplete" data-autocomplete-url-value="/autocomplete">
+    <input name="simple-input" type="text" class="form-control" data-autocomplete-target="input" placeholder="Search a Book"/>
+    <input type="hidden" name="book_id" data-autocomplete-target="hidden"/>
+    <ul data-autocomplete-target="results" class="list-group"></ul>
+  </div>
+</div>
+
+<% if @books.present? %>
+<div id="books">
+  <%= render @books %>
+</div>
+<% end %>

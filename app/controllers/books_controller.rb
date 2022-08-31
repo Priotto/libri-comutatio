@@ -20,6 +20,13 @@ class BooksController < ApplicationController
     @book = Book.new
   end
 
+  def autocomplete
+    books = Book.get_book_attributes(params[:q])
+    unless books.empty?
+      render partial: "books", formats: :html
+    end
+  end
+
   def create
     @book = Book.new(book_params_new)
     @book.user = current_user
