@@ -11,3 +11,10 @@
 @import "components/index";
 @import "pages/index";
 @import "components/banner";
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  height: 100vh;
+}
