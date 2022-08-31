@@ -14,6 +14,7 @@
       <%= link_to "Delete trade", trade_path(transaction), :method => :delete, data: {:confirm => "You sure?" , :turbo_method => :delete, :turbo => true} %>
     <% else %>
       <%= link_to "Accept Trade", trade_path(transaction), method: :patch %>
+      <%= link_to "Reject Trade", trade_path(transaction), :method => :delete, data: {:confirm => "You sure?" , :turbo_method => :delete, :turbo => true} %>
       <%= link_to "Chatroom", chatroom_path(transaction.chatroom) %>
     <% end %>
   <% end %>

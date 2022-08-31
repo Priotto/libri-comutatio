@@ -12,7 +12,7 @@
       <h3>You don't have books to trade</h3>
     <% else %>
       <%= simple_form_for [@book, @transaction] do |f| %>
-      <%= f.association :buyer_book, collection: current_user.books, label_method: :title %>
+      <%= f.association :buyer_book, collection: current_user.books.available, label_method: :title %>
       <%= f.button :submit %>
     <% end %>
   <% end %>
