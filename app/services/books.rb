@@ -23,10 +23,11 @@ class Books < ApplicationService
       book[:title] = element["volumeInfo"]["title"]
       book[:author] = element["volumeInfo"]["authors"].first
       book[:publisher] = element["volumeInfo"]["publisher"]
+      book[:synopsis] = element["volumeInfo"]["description"]
       book[:published_date] = element["volumeInfo"]["publishedDate"]
-      book[:thumbnail] = element["volumeInfo"]["imageLinks"]["smallThumbnail"]
+      element["volumeInfo"]["imageLinks"].nil? ? book[:thumbnail] = ActionController::Base.helpers.asset_path("dummybook.png") : book[:thumbnail] = element["volumeInfo"]["imageLinks"]["smallThumbnail"]
 
-      book_list.push(book)
+      books_list.push(book)
 
       # puts "Nome do autor: #{element["volumeInfo"]["authors"].first} "
       # puts "Editora: #{element["volumeInfo"]["publisher"]}"
@@ -35,7 +36,7 @@ class Books < ApplicationService
       # puts "#####################################################"
     end
 
-    return book_list
+    return books_list
 
   end
 

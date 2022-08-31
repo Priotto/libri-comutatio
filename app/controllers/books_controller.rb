@@ -21,9 +21,9 @@ class BooksController < ApplicationController
   end
 
   def autocomplete
-    books = Book.get_book_attributes(params[:q])
-    unless books.empty?
-      render partial: "books", formats: :html
+    @books = Book.get_book_attributes(params[:q])
+    unless @books.empty?
+      render partial: "book", formats: :html
     end
   end
 
