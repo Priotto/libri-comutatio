@@ -6,7 +6,7 @@
           <strong class="d-inline-block mb-2 text-primary"><%= result[:title] %></strong>
           <div class="mb-1 text-muted small"><%= result[:publisher]  %></div>
           <p class="card-text mb-auto"><%= result[:synopsis]  %>.</p>
-          <%= button_to "Add Book", book_build_path(book: result), method: :post %>
+          <%= button_to "Add Book", book_build_path(book: result), method: :post, remote: true %>
           <a class="btn btn-outline-primary btn-sm" role="button" href="http://www.jquery2dotnet.com/">Continue reading</a>
       </div>
       <%= image_tag(result[:thumbnail])  %>

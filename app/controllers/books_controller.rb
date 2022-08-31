@@ -27,15 +27,21 @@ class BooksController < ApplicationController
     end
   end
 
-  def build
-    @book = Book.new(build_params[:book])
-    raise
+  def build(book) #foi adicionado um parâmetro
+    book.update(build_params[:book])
+    book.user = current_user
+    #@book = Book.new(build_params[:book])
+    #@book.user = current_user
+    #return @book
   end
 
   def create
-    @book = Book.new(book_params_new)
-    @book.user = current_user
-
+    @book = Book.new(book_params_edit)
+    raise
+    a = build(@book)
+    # @book = build
+    # @book.user = current_user
+    # @book.description = book_params_edit
     if @book.save
       redirect_to book_path(@book)
     else
@@ -76,8 +82,8 @@ class BooksController < ApplicationController
   def book_params_new
     params.require(:book).permit(:title,
                                  :author,
-                                 :photo,
-                                 :year,
+                                 :thumbnail,
+                                 :published_date,
                                  :description,
                                  :synopsis,
                                  :rating,
@@ -87,6 +93,12 @@ class BooksController < ApplicationController
   end
 
   def build_params
-    params.permit(book: [:title, :author, :publisher, :synopsis, :published_date, :thumbnail])
+    params.permit(book: [:title, :author, :publisher, :synopsis, :published_date, :thumbnail, :description]) #foi adicionado a description
   end
+
+
+  # def build_params
+  #   params.require(:book).permit(book: [:title, :author, :publisher, :synopsis, :published_date, :thumbnail])
+  # end
+
 end
