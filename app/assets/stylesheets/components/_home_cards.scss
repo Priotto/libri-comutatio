@@ -1,7 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
 
-@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
-
 :root {
  --body-bg-color: #e5f4f9;
  --body-color-light: #8b939c;
@@ -42,7 +40,7 @@ background-attachment: fixed;
 }
 
 .book-store {
- display: flex;
+ display: inline-flex;
  flex-direction: column;
  max-width: 1400px;
  height: 100vh;
@@ -155,6 +153,8 @@ background-attachment: fixed;
 
 .book {
  background: #fff;
+ display: flex;
+ overflow: hidden;
 }
 
 .book-cell {
