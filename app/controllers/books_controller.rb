@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
   def index
     if params[:query].present?
-      @books = Book.search_offers(params[:query])
+      @books = Book.search_books(params[:query])
     else
       @books = Book.available
     end
