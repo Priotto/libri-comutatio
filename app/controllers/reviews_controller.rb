@@ -1,7 +1,6 @@
 class ReviewsController < ApplicationController
   def index
     @reviews = Review.all
-    # @reviews = Review.where("sender_id = ? OR receiver_id = ?", user_id, user_id)
   end
 
   def new
