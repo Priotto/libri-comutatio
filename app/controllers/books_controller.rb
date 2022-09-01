@@ -24,22 +24,22 @@ class BooksController < ApplicationController
     end
   end
 
-  def build(book) #foi adicionado um parâmetro
-    book.update(build_params[:book])
-    book.user = current_user
-    #@book = Book.new(build_params[:book])
-    #@book.user = current_user
-    #return @book
+  def build #foi adicionado um parâmetro(book)
+    # book.update(build_params[:book])
+    # book.user = current_user
+    @book = Book.new(build_params[:book])
+    @book.user = current_user
+    if @book.save
+      flash[:notice] = "Livro adicionado!"
+      redirect_to edit_book_path(@book)
+    end
   end
 
   def create
-    @book = Book.new(book_params_edit)
+    @book = Book.find(book_params_edit)
+    @book.description = book_params_edit[:description]
     raise
-    a = build(@book)
-    # @book = build
-    # @book.user = current_user
-    # @book.description = book_params_edit
-    if @book.save
+    if @book.update(book_params_edit)
       redirect_to book_path(@book)
     else
       render :new, status: :unprocessable_entity
@@ -73,7 +73,7 @@ class BooksController < ApplicationController
   private
 
   def book_params_edit
-    params.require(:book).permit(:description)
+    params.require(:book).permit(:description, :id)
   end
 
   def book_params_new

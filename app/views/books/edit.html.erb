@@ -1,5 +1,11 @@
-<h1>Edit de Book</h1>
-<%= simple_form_for (@book) do |f| %>
+<h1>More details about your book</h1>
+
+
+<div class="container">
+  <%= render partial: "selected" %>
+
+  <%= simple_form_for (@book) do |f| %>
     <%= f.input :description %>
     <%= f.button :submit %>
   <% end %>
+</div>
