@@ -10,4 +10,37 @@
   flex: 0 0 400px;
   font-family: yesevaone;
   opacity: 70%;
+  color: #4c423d;
+  font-weight: bolder;
+}
+
+.b-container {
+  // width: 900px;
+  margin: auto;
+  margin-left: 200px;
+  padding-top: 186px;
+  justify-content: left;
+  display: flex;
+}
+
+div {
+  display: block;
+}
+
+.btn-info {
+  display: inline-block;
+  background-color: rgba(234, 155, 43, 1);
+  padding: 16px 36px;
+  border-radius: 6px;
+  color: rgb(10, 47, 90);
+  font-weight: bolder;
+  font-size: 14px;
+  font-display: center;
+  width: 120px;
+  height: 40px;
+  padding: 10px 0 10px 0;
+
+  &:hover {
+    background-color: rgba(234, 155, 43, 0.8);
+  }
 }

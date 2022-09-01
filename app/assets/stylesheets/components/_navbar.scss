@@ -1,12 +1,12 @@
 .navbar {
   background-color: transparent;
-  transition: 1s background-color ease;
+  transition: 0.5s background-color ease;
   justify-content: space-between;
   background:#FFB200;
 }
 
 .navbar-white {
-  background-color: rgb(5, 0, 0);
+  background-color: #ffb30052
 }
 
 .navbar .navbar-collapse {
@@ -19,6 +19,13 @@
 
 .nav-link{
   margin-right: 10px;
+  font-size: 16px;
+}
+
+.dropdown-menu {
+  font-size: 16px;
+  margin-right: 14px;
+  padding-right: 78px;
 }
 
 .dropdown-menu a:hover
@@ -26,6 +33,10 @@
     color:rgb(0, 0, 0);
     background: linear-gradient(to right, rgba(255, 178, 0, 1), rgba(254, 139, 0, 0.4));
     text-decoration:none;
+}
+
+.dropdown-item {
+  font-weight: 500;
 }
 
 #li-bg{
