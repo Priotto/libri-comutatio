@@ -27,11 +27,20 @@ div {
   display: block;
 }
 
-.btn-primary {
+.btn-info {
   display: inline-block;
   background-color: rgba(234, 155, 43, 1);
   padding: 16px 36px;
-  border-radius: 50px;
+  border-radius: 6px;
   color: rgb(10, 47, 90);
   font-weight: bolder;
+  font-size: 14px;
+  font-display: center;
+  width: 120px;
+  height: 40px;
+  padding: 10px 0 10px 0;
+
+  &:hover {
+    background-color: rgba(234, 155, 43, 0.8);
+  }
 }
