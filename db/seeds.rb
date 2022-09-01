@@ -19,9 +19,10 @@ puts 'creating books'
 10.times do
   book = Book.create!(title: 'Lord of the Rings',
                       author: 'J. R. R. Tolkien',
-                      photo: 'https://images-na.ssl-images-amazon.com/images/I/51kfFS5-fnL._SX332_BO1,204,203,200_.jpg',
-                      year: '1954',
-                      synopsis: "In ancient times the Rings of Power were crafted by the Elven-smiths, and Sauron, the Dark Lord, forged the One Ring, filling it with his own power so that he could rule all others. But the One Ring was taken from him, and though he sought it throughout Middle-earth, it remained lost to him. After many ages it fell by chance into the hands of the hobbit Bilbo Baggins.",
+                      thumbnail: 'https://images-na.ssl-images-amazon.com/images/I/51kfFS5-fnL._SX332_BO1,204,203,200_.jpg',
+                      published_date: '1954',
+                      publisher: 'Publisher',
+                      synopsis: "In ancient times the Rings of Power were crafted by the Elven-smiths, and Sauron, the Dark Lord, forged the One Ring, filling it with his own power so that he could rule all others",
                       rating: 5,
                       latitude: Faker::Address.latitude,
                       longitude: Faker::Address.longitude,
