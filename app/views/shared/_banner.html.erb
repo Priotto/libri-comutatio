@@ -1,15 +1,16 @@
 <div class="banner">
   <div class="container-bnr">
     <div class="search-box">
-        <input type="text" class="search-input" placeholder="Search for a book...">
-
-        <button class="search-button">
-          <i class="fas fa-search"></i>
-        </button>
+       <%= form_with url: books_path, method: :get, class: "d-flex" do %>
+          <%= text_field_tag :query,
+          params[:query],
+          class: "search-input form-control",
+          placeholder: "Search Books"
+        %>
+      <%= button_tag(class: "search-button")  do %>
+        <i class="fas fa-search"></i>
+      <% end %>
+      <% end %>
     </div>
   </div>
 </div>
-
- <%# <div class="b-container">
-    <button type="button" class="btn btn-info">Search</button>
-  </div> %>
