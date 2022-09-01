@@ -1,9 +1,20 @@
 <h1 class="text-center">New de Book</h1>
 
 <div class="container">
-  <%= simple_form_for (@book) do |f| %>
-    <%= f.input :title %>
-    <%= f.input :description %>
-    <%= f.button :submit, class: "btn btn-primary" %>
-  <% end %>
+  <div class="max-w-xs mx auto bg-white">
+  <div class="mb-5">
+  <label for="simple-input" class="form-label">Select a Book</label>
+  <div data-controller="autocomplete" data-autocomplete-url-value="/autocomplete">
+    <input name="simple-input" type="text" class="form-control" data-autocomplete-target="input" placeholder="Search a Book"/>
+    <input type="hidden" name="book_id" data-autocomplete-target="hidden"/>
+    <ul data-autocomplete-target="results" class="list-group"></ul>
+  </div>
+</div>
+
+<% if @books.present? %>
+<div id="books">
+  <%= render @books %>
+</div>
+<% end %>
+</div>
 </div>
