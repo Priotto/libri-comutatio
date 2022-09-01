@@ -45,7 +45,6 @@ class BooksController < ApplicationController
   def create
     @book = Book.find(book_params_edit)
     @book.description = book_params_edit[:description]
-    raise
     if @book.update(book_params_edit)
       redirect_to book_path(@book)
     else
