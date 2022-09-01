@@ -3,7 +3,7 @@ class Book < ApplicationRecord
   has_many :trades, dependent: :destroy, foreign_key: 'seller_book_id'
   has_many :trades, dependent: :destroy, foreign_key: 'buyer_book_id'
 
-  validates :description, presence: true
+  #validates :description, presence: true
 
   scope :available, -> { where("available = ?", true) }
 
@@ -21,5 +21,10 @@ class Book < ApplicationRecord
   def self.get_book_attributes(title)
     response = Books.call(title)
     return response
+  end
+
+  def self.build(attr={})
+    book = Book.new(attr)
+    return book
   end
 end
