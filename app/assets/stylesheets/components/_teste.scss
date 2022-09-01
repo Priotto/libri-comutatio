@@ -8,25 +8,25 @@ $desktop: 1024px;
 	}
 }
 
-// html {
-//   box-sizing: border-box;
-//   font-size: 62.5%;
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
 
-//   *,
-//   *:before,
-//   *:after {
-//     box-sizing: inherit;
-//   }
-// }
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+}
 
-// body {
-// 	display: flex;
-// 	justify-content: center;
-// 	align-items: center;
-// 	width: 100vw;
-// 	height: 100vh;
-// 	background-color: #e6e6e6;
-// }
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	background-color: #e6e6e6;
+}
 
 .container-card-home {
 	display: flex;

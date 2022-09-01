@@ -1,43 +1,44 @@
 <%# <div class="navbar mb-5 fixed-top" data-controller="navbar" data-action="scroll@window->navbar#updateNavbar"> %>
-<div class="navbar navbar-expand-sm navbar-light navbar-white">
-  <div class="container-fluid">
-    <%= link_to "/", class: "navbar-brand" do %>
-      <%= image_tag "book.png" %>
-    <% end %>
+  <div class="navbar navbar-expand-sm navbar-light">
+    <div class="container-fluid">
+      <%= link_to "/", class: "navbar-brand" do %>
+        <%= image_tag "book.png" %>
+      <% end %>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if user_signed_in? %>
-          <%# <li class="icon busca" name="fbusca" id="libusca">
-            <input type="text" placeholder="Busca" name="frm busca"
-            onkeypress="return clickButton(event);" onclick="lnkBusca('','','');"
-            id="txtBusca" class="focusBusca">
-          </li> %>
-          <li class="nav-item active">
-            <%= link_to "Offer a Book", "/books/new", class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "Browse Books", books_path, class: "nav-link" %>
-          </li>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto">
+          <% if user_signed_in? %>
+            <%# <li class="icon busca" name="fbusca" id="libusca">
+              <input type="text" placeholder="Busca" name="frm busca"
+              onkeypress="return clickButton(event);" onclick="lnkBusca('','','');"
+              id="txtBusca" class="focusBusca">
+            </li> %>
+            <li class="nav-item active">
+              <%= link_to "Offer a Book", "/books/new", class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Browse Books", books_path, class: "nav-link" %>
+            </li>
 
-          <li class="nav-item dropdown">
-            <%= image_tag "hamburger.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" id="li-bg" aria-labelledby="navbarDropdown">
-              <%= link_to "My Books", my_books_path, class: "dropdown-item" %>
-              <%= link_to "My trades", trades_path, class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
-            </div>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-          </li>
-        <% end %>
-      </ul>
+            <li class="nav-item dropdown">
+              <%= image_tag "hamburger.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <div class="dropdown-menu dropdown-menu-end" id="li-bg" aria-labelledby="navbarDropdown">
+                <%= link_to "My Books", my_books_path, class: "dropdown-item" %>
+                <%= link_to "My trades", trades_path, class: "dropdown-item" %>
+                <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+              </div>
+            </li>
+          <% else %>
+            <li class="nav-item">
+              <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
     </div>
   </div>
-</div>
+
