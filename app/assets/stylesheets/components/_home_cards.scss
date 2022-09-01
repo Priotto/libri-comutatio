@@ -45,7 +45,7 @@ body {
 }
 
 .card {
-	width: 300px;
+	width: 335px;
 	margin: 10px;
 	background-color: white;
 	box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
@@ -58,9 +58,15 @@ body {
 
 		.card__image {
 			transform: translateY(-10px);
+      display: flex;
+      justify-content: center;
+      width: 100%;
 		}
 
 		.card__thumb {
+      max-height: 400px;
+      overflow: hidden;
+      margin-bottom: -54px;
 			&::after {
 				top: 0;
 			}

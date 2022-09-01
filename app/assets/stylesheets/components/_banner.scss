@@ -10,4 +10,28 @@
   flex: 0 0 400px;
   font-family: yesevaone;
   opacity: 70%;
+  color: #4c423d;
+  font-weight: bolder;
+}
+
+.b-container {
+  // width: 900px;
+  margin: auto;
+  margin-left: 200px;
+  padding-top: 186px;
+  justify-content: left;
+  display: flex;
+}
+
+div {
+  display: block;
+}
+
+.btn-primary {
+  display: inline-block;
+  background-color: rgba(234, 155, 43, 1);
+  padding: 16px 36px;
+  border-radius: 50px;
+  color: rgb(10, 47, 90);
+  font-weight: bolder;
 }
