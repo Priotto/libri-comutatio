@@ -8,33 +8,25 @@ $desktop: 1024px;
 	}
 }
 
-html {
-  box-sizing: border-box;
-  font-size: 62.5%;
+// html {
+//   box-sizing: border-box;
+//   font-size: 62.5%;
 
-  *,
-  *:before,
-  *:after {
-    box-sizing: inherit;
-  }
-}
+//   *,
+//   *:before,
+//   *:after {
+//     box-sizing: inherit;
+//   }
+// }
 
-body {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 100vw;
-	height: 100vh;
-	background-color: #e6e6e6;
-}
-
-.wrapper {
-  height:     100%;       /* These two lines were the key. */
-  width: 100%;
-  /*overflow:   hidden;*/ /* Do not use this, it crops in small browsers. */
-  margin:     auto;
-  padding:    auto;
-}
+// body {
+// 	display: flex;
+// 	justify-content: center;
+// 	align-items: center;
+// 	width: 100vw;
+// 	height: 100vh;
+// 	background-color: #e6e6e6;
+// }
 
 .container-card-home {
 	display: flex;
@@ -44,35 +36,34 @@ body {
 	margin: 20px 0 80px;
 }
 
-.card {
+.card-home {
 	width: 335px;
 	margin: 10px;
 	background-color: white;
 	box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
 
-	&:hover {
-		.card__caption {
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &:hover {
+		.card-home__caption {
 			top: 50%;
 			transform: translateY(-50%);
 		}
 
-		.card__image {
+		.card-home__image {
 			transform: translateY(-10px);
-      display: flex;
-      justify-content: center;
-      width: 100%;
 		}
 
-		.card__thumb {
-      max-height: 400px;
-      overflow: hidden;
-      margin-bottom: -54px;
+		.card-home__thumb {
 			&::after {
 				top: 0;
 			}
 		}
 
-		.card__snippet {
+		.card-home__snippet {
 			margin: 20px 0;
 		}
 	}
@@ -81,7 +72,7 @@ body {
 		position: relative;
 		max-height: 400px;
 		overflow: hidden;
-
+    margin-bottom: 0;
 		@include breakpoint(desktop) {
 			max-height: 500px;
 		}
