@@ -11,6 +11,13 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @transaction = Trade.new
     @books = Book.available.where(user: current_user).order(:title)
+    reviews = Review.where("sender_id = ?", @book.user.id)
+    if reviews.empty?
+      @reputation = 0.0
+    else
+      scores = reviews.map(&:score)
+      @reputation = scores.inject { |sum, el| (sum + el) }.to_f / reviews.size
+    end
   end
 
   def new

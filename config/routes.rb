@@ -11,7 +11,9 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :trades, only: %i[index destroy update]
+  resources :trades, only: %i[index destroy update] do
+    resources :reviews, only: %i[index new create]
+  end
 
   resources :chatrooms, only: :show do
     resources :messages, only: :create
