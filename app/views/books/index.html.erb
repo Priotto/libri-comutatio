@@ -1,18 +1,19 @@
-<div class="container text-center">
-  <h1 class="text-center">Index do Book</h1>
+<h1 class="text-center mt-5">Index do Book</h1>
 
-  <%= render "searchform", id: "search" %>
+<div class="">
+  <div class="container ">
+    <%= render "searchform", id: "search" %>
+    <% if @books.empty? %>
+      <div>
+        <p>The book you are looking for is not in our database</p>
+      </div>
+    <% else %>
 
-  <% if @books.empty? %>
-    <div>
-      <p>The book you are looking for is not in our database</p>
-    </div>
-  <% else %>
-    <div class="container ">
       <div class="row ">
-        <% @books.each do |book| %>
+        <% @books.each_with_index do |book, index| %>
           <%= render book %>
         <% end %>
       </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>

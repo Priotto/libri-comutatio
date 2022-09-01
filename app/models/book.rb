@@ -13,7 +13,7 @@ class Book < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :search_books,
-  against: [ :title, :synopsis, :author, :year, :description, :rating ],
+  against: [ :title, :synopsis, :author, :published_date, :description, :rating ],
   using: {
     tsearch: { prefix: true }
   }
