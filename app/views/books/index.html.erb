@@ -10,7 +10,7 @@
     <% else %>
 
       <div class="row ">
-        <% @books.each do |book| %>
+        <% @books.each_with_index do |book, index| %>
           <%= render book %>
         <% end %>
       </div>
