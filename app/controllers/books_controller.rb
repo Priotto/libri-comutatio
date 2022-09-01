@@ -12,10 +12,10 @@ class BooksController < ApplicationController
     @transaction = Trade.new
     @books = Book.available.where(user: current_user).order(:title)
     reviews = Review.where("sender_id = ?", @book.user.id)
-    if reviews.size == 0
+    if reviews.size.zero?
       @reputation = 0.0
     else
-    scores = reviews.map{ |review| review.score }
+    scores = reviews.map(&:score)
     @reputation = scores.inject{ |sum, el| (sum + el) }.to_f / reviews.size
     end
   end
@@ -26,12 +26,13 @@ class BooksController < ApplicationController
 
   def autocomplete
     @books = Book.get_book_attributes(params[:q])
+    raise
     unless @books.empty?
       render partial: "book", formats: :html
     end
   end
 
-  def build #foi adicionado um parâmetro(book)
+  def build # foi adicionado um parâmetro(book)
     # book.update(build_params[:book])
     # book.user = current_user
     @book = Book.new(build_params[:book])
@@ -45,7 +46,6 @@ class BooksController < ApplicationController
   def create
     @book = Book.find(book_params_edit)
     @book.description = book_params_edit[:description]
-    raise
     if @book.update(book_params_edit)
       redirect_to book_path(@book)
     else
