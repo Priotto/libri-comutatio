@@ -10,9 +10,7 @@
     <% else %>
 
       <div class="row ">
-        <% @books.each do |book| %>
-          <%= render book %>
-        <% end %>
+          <%= render "card" %>
       </div>
     <% end %>
   </div>
