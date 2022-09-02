@@ -105,3 +105,4 @@ class BooksController < ApplicationController
     params.permit(book: [:title, :author, :publisher, :synopsis, :published_date, :thumbnail, :description]) #foi adicionado a description
   end
 end
+#
