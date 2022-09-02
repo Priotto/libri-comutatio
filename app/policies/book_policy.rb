@@ -1,9 +1,7 @@
 class BookPolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      # scope.where(user: user)
-      # Or scope.where("name LIKE 't%'")
-      # Or user.admin? ? scope.all : scope.where(user: user)
+      scope.all
     end
   end
 
@@ -17,5 +15,17 @@ class BookPolicy < ApplicationPolicy
 
   def update?
     record.user == user
+  end
+
+  def destroy?
+    record.user == user
+  end
+
+  def autocomplete?
+    true
+  end
+
+  def build?
+    true
   end
 end

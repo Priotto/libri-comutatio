@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-# retomando
+
 class ApplicationPolicy
   attr_reader :user, :record
 
