@@ -1,22 +1,24 @@
 <%# mb-5 & fixed-top foram excluídos da div abaixo <div class="mb-5 fixed-top navbar-white" data-controller="navbar" data-action="scroll@window->navbar#updateNavbar"> %>
   <div class="navbar navbar-expand-sm navbar-light mb-5 fixed-top" data-controller="navbar" data-action="scroll@window->navbar#updateNavbar">
     <div class="container-fluid">
-      <%= link_to "/", class: "navbar-brand" do %>
-        <%= image_tag "book.png" %>
-      <% end %>
 
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <div class="d-flex">
+        <div class="logo">
+          <%= link_to "/", class: "navbar-brand" do %>
+            <%= image_tag "book.png" %>
+          <% end %>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+        <div class="libri">
+          <h1 class="titulo-nav">Libri Comutatio</h1>
+        </div>
+      </div>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto">
           <% if user_signed_in? %>
-            <%# <li class="icon busca" name="fbusca" id="libusca">
-              <input type="text" placeholder="Busca" name="frm busca"
-              onkeypress="return clickButton(event);" onclick="lnkBusca('','','');"
-              id="txtBusca" class="focusBusca">
-            </li> %>
             <li class="nav-item active">
               <%= link_to "Offer a Book", "/books/new", class: "nav-link" %>
             </li>

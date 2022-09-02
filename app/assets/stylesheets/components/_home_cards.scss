@@ -38,7 +38,7 @@ $desktop: 1024px;
 
 .card-home {
 	width: 335px;
-	margin: 10px;
+	margin: 26px;
 	background-color: white;
 	box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
 
@@ -180,4 +180,10 @@ $desktop: 1024px;
 		color: #755D87;
 		text-decoration: none;
 	}
+}
+
+.cards-title{
+  left: 6%;
+  position: relative;
+  color: #4c423d;
 }

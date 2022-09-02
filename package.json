@@ -10,6 +10,7 @@
     "bootstrap": "^5.2.0",
     "stimulus": "^3.1.0",
     "stimulus-autocomplete": "^3.0.2",
+    "sweetalert": "^2.1.2",
     "webpack": "^5.74.0",
     "webpack-cli": "^4.10.0"
   },
