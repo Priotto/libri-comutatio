@@ -1,21 +1,21 @@
 <% if flash[:notice] %>
-  <script>
-    document.addEventListener('turbo:load', function() {
+  <script defer >
+    (function (params) {
       swal({
         text: "<%= flash[:notice] %>",
         icon: "success",
       });
-    });
+    })()
   </script>
 <% end %>
 
 <% if flash[:alert] %>
   <script>
-    document.addEventListener('turbo:load', function() {
+    (function (params) {
       swal({
         text: "<%= flash[:alert] %>",
         icon: "error",
       });
-    });
+    })()
   </script>
 <% end %>
