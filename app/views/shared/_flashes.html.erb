@@ -1,14 +1,21 @@
-<% if notice %>
-  <div class="alert alert-info alert-dismissible fade show m-1" role="alert">
-    <%= notice %>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-    </button>
-  </div>
+<% if flash[:notice] %>
+  <script>
+    document.addEventListener('turbo:load', function() {
+      swal({
+        text: "<%= flash[:notice] %>",
+        icon: "success",
+      });
+    });
+  </script>
 <% end %>
-<% if alert %>
-  <div class="alert alert-warning alert-dismissible fade show m-1" role="alert">
-    <%= alert %>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-    </button>
-  </div>
+
+<% if flash[:alert] %>
+  <script>
+    document.addEventListener('turbo:load', function() {
+      swal({
+        text: "<%= flash[:alert] %>",
+        icon: "error",
+      });
+    });
+  </script>
 <% end %>
