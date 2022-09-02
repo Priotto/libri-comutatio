@@ -1,5 +1,7 @@
+Trade.destroy_all
 Book.destroy_all
 User.destroy_all
+
 
 puts 'creating users'
 
@@ -17,17 +19,20 @@ puts 'users created'
 puts 'creating books'
 
 10.times do
-  Book.create!(title: 'Lord of the Rings',
-                      author: 'J. R. R. Tolkien',
-                      thumbnail: 'https://images-na.ssl-images-amazon.com/images/I/51kfFS5-fnL._SX332_BO1,204,203,200_.jpg',
-                      published_date: '1954',
-                      publisher: 'Publisher',
-                      synopsis: 'In ancient times the Rings of Power were crafted by the Elven-smiths, and Sauron, the Dark Lord, forged the One Ring, filling it with his own power so that he could rule all others',
-                      rating: 5,
-                      latitude: Faker::Address.latitude,
-                      longitude: Faker::Address.longitude,
-                      description: 'Brand new',
-                      user: User.all.sample)
+  books = Book.get_book_attributes(Faker::Book.title)
+  puts "###############LIVRO#############:   #{books}"
+
+
+  Book.create!(title: books.first[:title],
+              author: books.first[:author],
+              thumbnail:books.first[:thumbnail],
+              published_date: books.first[:published_date],
+              synopsis: books.first[:synopsis],
+              rating: 5,
+              latitude: Faker::Address.latitude,
+              longitude: Faker::Address.longitude,
+              description: 'Brand new',
+              user: User.all.sample)
 end
 
 puts 'books created'
