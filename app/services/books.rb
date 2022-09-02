@@ -18,10 +18,11 @@ class Books < ApplicationService
 
   def digest(response)
     books_list = []
+
     response["items"].each do |element|
       book = Hash.new
       book[:title] = element["volumeInfo"]["title"]
-      element['volumeInfo']['authors'].nil? ? book[:author] = "" : book[:author] = element['volumeInfo']['authors'].first
+      book[:author] = element["volumeInfo"]["authors"].nil? ? "Autor não encontrado" : element["volumeInfo"]["authors"].first
       book[:publisher] = element["volumeInfo"]["publisher"]
       book[:synopsis] = element["volumeInfo"]["description"]
       book[:published_date] = element["volumeInfo"]["publishedDate"]
