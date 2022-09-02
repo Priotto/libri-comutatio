@@ -18,6 +18,7 @@ class ReviewsController < ApplicationController
     @review.trade = @transaction
 
     if @review.save
+      flash[:notice] = "Trade request sent!"
       redirect_to root_path
     else
       render :new, status: :unprocessable_entity

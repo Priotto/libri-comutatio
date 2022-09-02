@@ -21,7 +21,7 @@ class Books < ApplicationService
     response["items"].each do |element|
       book = Hash.new
       book[:title] = element["volumeInfo"]["title"]
-      book[:author] = element["volumeInfo"]["authors"].first
+      element['volumeInfo']['authors'].nil? ? book[:author] = "" : book[:author] = element['volumeInfo']['authors'].first
       book[:publisher] = element["volumeInfo"]["publisher"]
       book[:synopsis] = element["volumeInfo"]["description"]
       book[:published_date] = element["volumeInfo"]["publishedDate"]
