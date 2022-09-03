@@ -36,7 +36,10 @@ class BooksController < ApplicationController
     @book = Book.new(build_params[:book])
     @book.user = current_user
     authorize @book
-    redirect_to edit_book_path(@book) if @book.save
+    if @book.save
+      flash[:notice] = "You added this book!"
+      redirect_to edit_book_path(@book)
+    end
   end
 
   def create
@@ -61,6 +64,8 @@ class BooksController < ApplicationController
     authorize @book
 
     if @book.update(book_params_edit)
+      flash[:notice] = "You updated this book!"
+
       redirect_to book_path(@book)
     else
       render :edit, status: :unprocessable_entity
