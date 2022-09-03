@@ -1,12 +1,9 @@
 class ChatroomPolicy < ApplicationPolicy
   class Scope < Scope
-    # NOTE: Be explicit about which records you allow access to!
-    # def resolve
-    #   scope.all
-    # end
   end
 
   def show?
     true
+    # record.trade.seller_book_id == user || record.trade.buyer_book_id
   end
 end

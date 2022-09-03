@@ -1,7 +1,7 @@
 class TradePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
-      scope.all
+      scope.where("seller_id = ? OR buyer_id = ?", user, user)
     end
   end
 
