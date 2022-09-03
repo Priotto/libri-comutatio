@@ -37,7 +37,6 @@ class BooksController < ApplicationController
     @book = Book.new(build_params[:book])
     @book.user = current_user
     if @book.save
-      flash[:notice] = "Livro adicionado!"
       redirect_to edit_book_path(@book)
     end
   end
@@ -46,6 +45,7 @@ class BooksController < ApplicationController
     @book = Book.find(book_params_edit)
     @book.description = book_params_edit[:description]
     if @book.update(book_params_edit)
+      flash[:notice] = "Livro adicionado!"
       redirect_to book_path(@book)
     else
       render :new, status: :unprocessable_entity
