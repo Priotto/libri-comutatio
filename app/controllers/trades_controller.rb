@@ -3,6 +3,7 @@ class TradesController < ApplicationController
   def index
     @transactions = Trade.where("seller_id = ? OR buyer_id = ?", current_user, current_user).where(accepted: false)
     @history_transactions = Trade.where("seller_id = ? OR buyer_id = ?", current_user, current_user).where("accepted = ?", true)
+    @review = Review.new
   end
 
   def create

@@ -1,6 +1,0 @@
-<%# <%= simple_form_for @review, :url => url_for(:action => 'new', :controller => 'reviews'), :method => 'post' do |f| %>
-
-<%= simple_form_for [@transaction, @review] do |f| %>
-      <%= f.input :score, collection: 1..5 %>
-      <%= f.button :submit %>
-<% end %>

@@ -1,30 +1,33 @@
 <div class="container text-center">
   <h1>Index de Transactions</h1>
 
-<% if @transactions.empty? %>
-  <div>
-    <p>You don't have an ongoing transaction</p>
-    <%= link_to "Browse books to trade", books_path %>
-  </div>
-<% else %>
-  <div>
-  <% @transactions.each do |transaction| %>
+  <% if @transactions.empty? %>
+    <div>
+      <p>You don't have an ongoing transaction</p>
+      <%= link_to "Browse books to trade", books_path %>
+    </div>
+  <% else %>
+    <div>
+    <% @transactions.each do |transaction| %>
+      <h3><%= transaction.buyer_book.title %>/<%= transaction.seller_book.title %></h3>
+      <% if current_user == transaction.buyer %>
+        <%= link_to "Chatroom", chatroom_path(transaction.chatroom) %>
+        <%= link_to "Delete trade", trade_path(transaction), :method => :delete, data: {:confirm => "You sure?" , :turbo_method => :delete, :turbo => true} %>
+      <% else %>
+        <%= link_to "Accept Trade", trade_path(transaction), :method => :patch, data: {:confirm => "You sure?" , :turbo_method => :patch, :turbo => true} %>
+        <%= link_to "Reject Trade", trade_path(transaction), :method => :delete, data: {:confirm => "You sure?" , :turbo_method => :delete, :turbo => true} %>
+        <%= link_to "Chatroom", chatroom_path(transaction.chatroom) %>
+      <% end %>
+    <% end %>
+    </div>
+  <% end %>
+
+  <h1>Past Transactions</h1>
+  <% @history_transactions.each do |transaction| %>
     <h3><%= transaction.buyer_book.title %>/<%= transaction.seller_book.title %></h3>
-    <% if current_user == transaction.buyer %>
-      <%= link_to "Chatroom", chatroom_path(transaction.chatroom) %>
-      <%= link_to "Delete trade", trade_path(transaction), :method => :delete, data: {:confirm => "You sure?" , :turbo_method => :delete, :turbo => true} %>
-    <% else %>
-      <%= link_to "Accept Trade", trade_path(transaction), :method => :patch, data: {:confirm => "You sure?" , :turbo_method => :patch, :turbo => true} %>
-      <%= link_to "Reject Trade", trade_path(transaction), :method => :delete, data: {:confirm => "You sure?" , :turbo_method => :delete, :turbo => true} %>
-      <%= link_to "Chatroom", chatroom_path(transaction.chatroom) %>
+    <%= simple_form_for [transaction, @review] do |f| %>
+      <%= f.input :score, collection: (1..5).to_a, label: "Rate your experience", input_html: {data: {controller: "star-rating"}} %>
+      <%= f.button :submit %>
     <% end %>
   <% end %>
-  </div>
-<% end %>
-
-<h1>Past Transactions</h1>
-<% @history_transactions.each do |transaction| %>
-  <h3><%= transaction.buyer_book.title %>/<%= transaction.seller_book.title %></h3>
-  <%= link_to "Review this trade", new_trade_review_path(transaction) %>
-<% end %>
 </div>

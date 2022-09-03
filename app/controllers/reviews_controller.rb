@@ -1,13 +1,4 @@
 class ReviewsController < ApplicationController
-  def index
-    @reviews = Review.all
-  end
-
-  def new
-    @review = Review.new
-    @transaction = Trade.find(params[:trade_id])
-  end
-
   def create
     @transaction = Trade.find(params[:trade_id])
     receiver = current_user
