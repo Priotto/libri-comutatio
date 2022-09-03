@@ -39,7 +39,6 @@ class BooksController < ApplicationController
     @book.user = current_user
     authorize @book
     if @book.save
-      flash[:notice] = "Livro adicionado!"
       redirect_to edit_book_path(@book)
     end
   end
@@ -49,6 +48,7 @@ class BooksController < ApplicationController
     authorize @book
     @book.description = book_params_edit[:description]
     if @book.update(book_params_edit)
+      flash[:notice] = "Livro adicionado!"
       redirect_to book_path(@book)
     else
       render :new, status: :unprocessable_entity
