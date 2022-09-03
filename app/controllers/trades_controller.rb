@@ -1,6 +1,7 @@
 class TradesController < ApplicationController
 
   def index
+    @transactions = policy_scope(Trade)
     @transactions = Trade.where("seller_id = ? OR buyer_id = ?", current_user, current_user).where(accepted: false)
     @history_transactions = Trade.where("seller_id = ? OR buyer_id = ?", current_user, current_user).where("accepted = ?", true)
   end
@@ -19,6 +20,8 @@ class TradesController < ApplicationController
     chat.save
     @transaction.chatroom = chat
 
+    authorize @transaction
+
     if @transaction.save
       flash[:notice] = "Trade request sent!"
       redirect_to chatroom_path(chat)
@@ -34,6 +37,7 @@ class TradesController < ApplicationController
     seller_book.update(user: @transaction.buyer)
     buyer_book = Book.find(@transaction.buyer_book.id)
     buyer_book.update(user: current_user)
+    authorize @transaction
     seller_book.trade!
     buyer_book.trade!
     @transaction.save!
@@ -42,6 +46,7 @@ class TradesController < ApplicationController
 
   def destroy
     @transaction = Trade.find(params[:id])
+    authorize @transaction
     @transaction.destroy
     redirect_to trades_path, status: :see_other
   end

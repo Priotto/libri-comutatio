@@ -1,11 +1,11 @@
-class BookPolicy < ApplicationPolicy
+class TradePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope.all
     end
   end
 
-  def show?
+  def index?
     true
   end
 
@@ -14,14 +14,10 @@ class BookPolicy < ApplicationPolicy
   end
 
   def update?
-    record.user == user
+    record.seller == user || record.buyer == user
   end
 
   def destroy?
-    record.user == user
-  end
-
-  def build?
-    true
+    record.seller == user || record.buyer == user
   end
 end

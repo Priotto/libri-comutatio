@@ -29,18 +29,14 @@ class BooksController < ApplicationController
 
   def autocomplete
     @books = policy_scope(Book).get_book_attributes(params[:q])
-    unless @books.empty?
-      render partial: "book", formats: :html
-    end
+    render partial: "book", formats: :html unless @books.empty?
   end
 
   def build
     @book = Book.new(build_params[:book])
     @book.user = current_user
     authorize @book
-    if @book.save
-      redirect_to edit_book_path(@book)
-    end
+    redirect_to edit_book_path(@book) if @book.save
   end
 
   def create
@@ -48,7 +44,7 @@ class BooksController < ApplicationController
     authorize @book
     @book.description = book_params_edit[:description]
     if @book.update(book_params_edit)
-      flash[:notice] = "Livro adicionado!"
+      flash[:notice] = "Your book was added!"
       redirect_to book_path(@book)
     else
       render :new, status: :unprocessable_entity
@@ -102,7 +98,6 @@ class BooksController < ApplicationController
   end
 
   def build_params
-    params.permit(book: [:title, :author, :publisher, :synopsis, :published_date, :thumbnail, :description]) #foi adicionado a description
+    params.permit(book: %i[title author publisher synopsis published_date thumbnail description])
   end
 end
-#

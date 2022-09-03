@@ -2,9 +2,8 @@ class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   include Pundit::Authorization
 
-  # Pundit: allow-list approach
-  after_action :verify_authorized, except: [:index, :autocomplete, :my], unless: :skip_pundit?
-  after_action :verify_policy_scoped, only: [:index, :autocomplete, :my], unless: :skip_pundit?
+  after_action :verify_authorized, except: %i[index autocomplete my], unless: :skip_pundit?
+  after_action :verify_policy_scoped, only: %i[index autocomplete my], unless: :skip_pundit?
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
