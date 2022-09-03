@@ -3,12 +3,25 @@
   <%= @book.title %>
   <%= @book.author %>
   <%= @book.description %>
+  <img src="<%= @book.thumbnail %>" alt="">
   <%= @book.user.firstname %>
   <% if @reputation == 0 %>
     <p>This user is new</p>
   <% else %>
     <%= @reputation %>
   <% end %>
+
+  <div class="container-show-book">
+    <%= @book.title %>
+    <%= @book.author %>
+    <%= @book.description %>
+    <%= @book.user.firstname %>
+    <% if @reputation == 0 %>
+      <p>This user is new</p>
+    <% else %>
+      <%= @reputation %>
+    <% end %>
+  </div>
 
   <% if current_user == @book.user %>
     <%= link_to "Edit Book", edit_book_path(@book) %>
@@ -23,4 +36,35 @@
       <% end %>
     <% end %>
   <% end %>
+
+
+
+<div class="perfil-show">
+  <div>
+    <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large", alt: "avatar-large" %>
+  </div>
+
+  <div>
+    <h5>
+      <%= @book.user.firstname %>
+    </h5>
+  </div>
+
+  <button type="button" class="btn btn-info btn-chat-show">Chat</button>
+
+  <hr>
+
+  <div class="verified-show">
+    <div>
+      <h5>Verified</h5>
+    </div>
+    <div><i class="fa-brands fa-whatsapp"></i></div>
+    <div><i class="fa-regular fa-envelope"></i></div>
+  </div>
+
+  <hr>
+
+  <button type="button" class="btn btn-info btn-book-stash-show">Book Stash</button>
+</div>
+
 </div>
