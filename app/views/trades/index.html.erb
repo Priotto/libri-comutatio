@@ -27,10 +27,12 @@
     <h3><%= transaction.buyer_book.title %>/<%= transaction.seller_book.title %></h3>
     <%= simple_form_for [transaction, @review] do |f| %>
         <div class="star-rating" data-controller="form-submit">
-          <% 5.times do |i| %>
-            <input data-action="click->form-submit#submit" type="radio" name="review[rating]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
-          <% end %>
-        <%= f.button :submit, class: "d-none"%>
+          <div>
+            <% 5.times do |i| %>
+              <input data-form-submit-target="input" data-action="click->form-submit#submit" type="radio" name="review[rating]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
+              <%= f.button :submit, class: "d-none" %>
+            <% end %>
+          </div>
         </div>
       <% end %>
   <% end %>
