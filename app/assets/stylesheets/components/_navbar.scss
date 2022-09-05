@@ -1,12 +1,12 @@
 .navbar {
-  background-color: transparent;
   transition: 0.5s background-color ease;
   justify-content: space-between;
-  background:#FFB200;
+  background: linear-gradient(to bottom left, #0F2027, #203A43, #2C5364);
 }
 
 .navbar-white {
-  background-color: #ffb30052
+
+  background: transparent;
 }
 
 .navbar .navbar-collapse {
@@ -20,6 +20,7 @@
 .nav-link{
   margin-right: 10px;
   font-size: 16px;
+  color: #727F86;
 }
 
 .dropdown-menu {
@@ -37,12 +38,20 @@
 
 .dropdown-item {
   font-weight: 500;
+  color: #FFFEFE;
 }
 
 .titulo-nav {
-  color: #277BC0;
+  // color: #277BC0;
+  font-family: Arial, sans-serif;
+
+  background: -webkit-linear-gradient(#eee, #C1BDBE33);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
 }
 
 #li-bg{
-  background: linear-gradient(to right, rgba(255, 178, 0, 1), rgba(254, 139, 0, 0.4));
+  // linear-gradient(to bottom left, #0F2027, #203A43, #2C5364);
+  background: linear-gradient(to bottom left, rgba(15, 32, 39, 0.8), rgba(32, 58, 67, 0.5), rgba(44, 83, 100, 0.6));
 }
