@@ -11,8 +11,9 @@
   <% end %>
 
   <% if current_user == @book.user %>
-    <%= link_to "Edit Book", edit_book_path(@book) %>
-    <%= link_to "Browse books to trade", books_path %>
+    <%= link_to "Edit Book", edit_book_path(@book), class: "btn btn-outline-primary btn-sm" %>
+    <%= link_to "Browse books to trade", books_path, class: "btn btn-outline-primary btn-sm" %>
+    <%= link_to "Delete", book_path(@book), :method => :delete, data: {:confirm => "You sure?" , :turbo_method => :delete, :turbo => true}, class: "btn btn-outline-primary btn-sm" %>
   <% else %>
       <% if current_user.books.empty? %>
         <h3>You don't have books to trade</h3>

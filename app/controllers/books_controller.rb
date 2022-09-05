@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   def index
+    @books = policy_scope(Book)
     if params[:query].present?
       @books = Book.search_books(params[:query])
     else
@@ -9,6 +10,7 @@ class BooksController < ApplicationController
 
   def show
     @book = Book.find(params[:id])
+    authorize @book
     @transaction = Trade.new
     @books = Book.available.where(user: current_user).order(:title)
     @markers = [
@@ -27,20 +29,20 @@ class BooksController < ApplicationController
 
   def new
     @book = Book.new
+    authorize @book
   end
 
   def autocomplete
-    @books = Book.get_book_attributes(params[:q])
+    @books = policy_scope(Book).get_book_attributes(params[:q])
     unless @books.empty?
       render partial: "book", collection: @books, formats: :html
     end
   end
 
-  def build #foi adicionado um parâmetro(book)
-    # book.update(build_params[:book])
-    # book.user = current_user
+  def build
     @book = Book.new(build_params[:book])
     @book.user = current_user
+    authorize @book
     if @book.save
       flash[:notice] = "You added this book!"
       redirect_to edit_book_path(@book)
@@ -49,9 +51,10 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.find(book_params_edit)
+    authorize @book
     @book.description = book_params_edit[:description]
     if @book.update(book_params_edit)
-      flash[:notice] = "Livro adicionado!"
+      flash[:notice] = "Your book was added!"
       redirect_to book_path(@book)
     else
       render :new, status: :unprocessable_entity
@@ -60,10 +63,12 @@ class BooksController < ApplicationController
 
   def edit
     @book = Book.find(params[:id])
+    authorize @book
   end
 
   def update
     @book = Book.find(params[:id])
+    authorize @book
 
     if @book.update(book_params_edit)
       flash[:notice] = "You updated this book!"
@@ -76,12 +81,13 @@ class BooksController < ApplicationController
 
   def destroy
     @book = Book.find(params[:id])
+    authorize @book
     @book.destroy
     redirect_to books_path, status: :see_other
   end
 
   def my
-    @books = current_user.books
+    @books = policy_scope(Book).where(user: current_user)
   end
 
   private
@@ -104,13 +110,6 @@ class BooksController < ApplicationController
   end
 
   def build_params
-    params.permit(book: [:title, :author, :publisher, :synopsis, :published_date, :thumbnail, :description]) #foi adicionado a description
+    params.permit(book: %i[title author publisher synopsis published_date thumbnail description])
   end
-
-
-  # def build_params
-  #   params.require(:book).permit(book: [:title, :author, :publisher, :synopsis, :published_date, :thumbnail])
-  # end
-
 end
-#
