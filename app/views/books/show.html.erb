@@ -1,41 +1,38 @@
-<div class="mt-5 d-flex">
-  <div>
-    <h1><%= @book.title %></h1>
-    <div class="book-card-show">
-      <div class="book-img-show">
-        <img src="<%= @book.thumbnail %>" width="250" height="372" alt="">
-      </div>
-      <div class="book-info-show">
-        <div class=book-main-info-show>
-          <div><%= @book.publisher %></div>
-          <div><%= @book.published_date %></div>
-          <div><%= @book.author %></div>
-          <div><%= @book.synopsis %></div>
+<div class="mt-5 col-12">
+  <div class = "card-book-allinfo-show col-9">
+    <div class="image-associated-with-info">
+      <h1><%= @book.title %></h1>
+      <div class="book-card-show">
+        <div class="book-img-show">
+          <img src="<%= @book.thumbnail %>" width="250" height="372" alt="">
         </div>
-        <div class="book-description-show">
-          <div class="book-sentence-show"><i class="fa-solid fa-quote-left"></i><p><%= @book.description %></p></div>
-          <div><%= @book.user.firstname %></div>
+        <div class="book-info-show">
+          <div class=book-main-info-show>
+            <div>
+              <h4><%= @book.author %></h4>
+            </div>
+            <div class="book-synopsis"><%= @book.synopsis %></div>
+            <div class="publisher-and-year">
+              <div>
+                <p><%= @book.publisher %></p>
+              </div>
+              <div>
+                <p><%= @book.published_date %></p>
+              </div>
+            </div>
+          </div>
+          <div class="book-description-show">
+            <div class="book-sentence-show"><i class="fa-solid fa-quote-left"></i>
+              <p><%= @book.description %></p>
+            </div>
+            <div><%= @book.user.firstname %></div>
+          </div>
         </div>
       </div>
-    </div>
-    <% if @reputation == 0 %>
-      <p>This user is new</p>
-    <% else %>
-      <%= @reputation %>
-    <% end %>
-    <div class="container-show-book">
-      <%= @book.title %>
-      <%= @book.author %>
-      <%= @book.description %>
-      <%= @book.user.firstname %>
-      <% if @reputation == 0 %>
-        <p>This user is new</p>
-      <% else %>
-        <%= @reputation %>
-      <% end %>
     </div>
   </div>
-  <div class="perfil-show">
+
+  <div class="perfil-show col-3">
     <div>
       <img class="avatar-large-show" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
     </div>
@@ -43,6 +40,13 @@
       <h5>
         <%= @book.user.firstname %>
       </h5>
+      <div class="container-show-book">
+        <% if @reputation == 0 %>
+          <p>This user is new</p>
+        <% else %>
+          <%= @reputation %>
+        <% end %>
+      </div>
     </div>
     <button type="button" class="btn-book-chat"><i class="fa-regular fa-comment"></i> Chat</button>
     <div class="verified-and-icons-show">
