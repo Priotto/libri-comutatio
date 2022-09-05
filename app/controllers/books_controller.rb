@@ -11,6 +11,11 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @transaction = Trade.new
     @books = Book.available.where(user: current_user).order(:title)
+    @markers = [
+      {
+        lat: current_user.latitude,
+        lng: current_user.longitude
+      }]
     reviews = Review.where("sender_id = ?", @book.user.id)
     if reviews.empty?
       @reputation = 0.0
