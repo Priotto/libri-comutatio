@@ -12,7 +12,7 @@ class ReviewsController < ApplicationController
       flash[:notice] = "Your review was sent!"
       redirect_to root_path
     else
-      render :new, status: :unprocessable_entity
+      render 'trades/index', status: :unprocessable_entity
     end
   end
 

@@ -25,13 +25,14 @@
   <h1>Past Transactions</h1>
   <% @history_transactions.each do |transaction| %>
     <h3><%= transaction.buyer_book.title %>/<%= transaction.seller_book.title %></h3>
-    <div class="star-rating" data-controller="formSubmit">
-      <%= simple_form_for [transaction, @review] do |f| %>
+    <div class="star-rating">
+      <%= simple_form_for [transaction, @review], data: { controller: "form-submit" } do |f| %>
           <div>
             <% 5.times do |i| %>
-              <input data-form-submit-target="input" data-action="click->form-submit#submitForm" type="radio" name="review[rating]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
-              <%= f.button :submit, class: "d-none" %>
+
+              <input data-action="click->form-submit#teste" type="radio" name="review[score]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
             <% end %>
+            <%= f.button :submit, class: "d-none" %>
           </div>
         <% end %>
       </div>
