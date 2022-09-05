@@ -8,6 +8,8 @@ class ReviewsController < ApplicationController
     @review.receiver = receiver
     @review.trade = @transaction
 
+    authorize @review
+
     if @review.save
       flash[:notice] = "Your review was sent!"
       redirect_to root_path
