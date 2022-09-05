@@ -1,0 +1,28 @@
+.star-rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  input {
+    visibility: hidden;
+    margin-right: 1em;
+    text-shadow: 0.5px 0.5px 3px #E67E23;
+  }
+
+  input:before {
+    cursor: pointer;
+    visibility: visible;
+    font: var(--fa-font-solid);
+    content: "\f005";
+    color: #FD4;
+    transition: color 0.35s;
+  }
+
+  input:hover {
+    transform: scale(1.2) translate(-10%, -10%);
+  }
+
+  input:checked ~ input:before {
+    color: #fff;
+  }
+}
