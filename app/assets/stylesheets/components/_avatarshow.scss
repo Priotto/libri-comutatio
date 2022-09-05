@@ -1,10 +1,14 @@
+*{
+  border: red solid 1px;
+}
+
 .avatar-show {
   width: 40px;
   border-radius: 50%;
 }
 
 .avatar-large-show {
-  width: 56px;
+  width: 3.5rem;
   border-radius: 50%;
 }
 
@@ -26,16 +30,94 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   overflow: hidden;
-  height: 120px;
+  height: 21rem;
+  width: 21rem;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.verified-and-icons-show{
+  display: flex;
+  flex-direction: column;
+}
+
+.verified-and-icons-show hr{
+  border: none;
+  height: 2px;
+  /* Set the hr color */
+  color: #333; /* old IE */
+  background-color: #333; /* Modern Browsers */
 }
 
 .verified-show{
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  margin-bottom: 1rem;
 }
-.btn-info-show{
 
+.verified-show p{
+  font-size: 1rem;
+  margin: 0;
+}
+
+.btn-book-chat{
+  background-color: #FFB200;
+  border-radius: 1rem;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.1rem;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.btn-book-stash-show{
+  background-color: #FFB200;
+  border-radius: 1rem;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.1rem;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.fa-whatsapp, .fa-envelope{
+  font-size: 1.5rem;
+}
+
+.book-card-show{
+  display: flex;
+  flex-direction: row;
+}
+.book-info-show{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  p{
+    margin-bottom: 0;
+  }
+}
+
+.book-sentence-show{
+  display: flex;
+  flex-direction: row;
+}
+
+.book-description-show{
+  display: flex;
+  flex-direction: row;
 }

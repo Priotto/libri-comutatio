@@ -1,75 +1,78 @@
-<div class="mt-5">
-  <h1>Show da Book</h1>
-  <%= @book.title %>
-  <%= @book.author %>
-  <%= @book.description %>
-  <img src="<%= @book.thumbnail %>" alt="">
-  <%= @book.user.firstname %>
-  <% if @reputation == 0 %>
-    <p>This user is new</p>
-  <% else %>
-    <%= @reputation %>
-  <% end %>
-
-  <div class="container-show-book">
-    <%= @book.title %>
-    <%= @book.author %>
-    <%= @book.description %>
-    <%= @book.user.firstname %>
+<div class="mt-5 d-flex">
+  <div>
+    <h1><%= @book.title %></h1>
+    <div class="book-card-show">
+      <div class="book-img-show">
+        <img src="<%= @book.thumbnail %>" width="250" height="372" alt="">
+      </div>
+      <div class="book-info-show">
+        <div class=book-main-info-show>
+          <div><%= @book.publisher %></div>
+          <div><%= @book.published_date %></div>
+          <div><%= @book.author %></div>
+          <div><%= @book.synopsis %></div>
+        </div>
+        <div class="book-description-show">
+          <div class="book-sentence-show"><i class="fa-solid fa-quote-left"></i><p><%= @book.description %></p></div>
+          <div><%= @book.user.firstname %></div>
+        </div>
+      </div>
+    </div>
     <% if @reputation == 0 %>
       <p>This user is new</p>
     <% else %>
       <%= @reputation %>
     <% end %>
+    <div class="container-show-book">
+      <%= @book.title %>
+      <%= @book.author %>
+      <%= @book.description %>
+      <%= @book.user.firstname %>
+      <% if @reputation == 0 %>
+        <p>This user is new</p>
+      <% else %>
+        <%= @reputation %>
+      <% end %>
+    </div>
   </div>
-
+  <div class="perfil-show">
+    <div>
+      <img class="avatar-large-show" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
+    </div>
+    <div>
+      <h5>
+        <%= @book.user.firstname %>
+      </h5>
+    </div>
+    <button type="button" class="btn-book-chat"><i class="fa-regular fa-comment"></i> Chat</button>
+    <div class="verified-and-icons-show">
+      <hr>
+      <div class="verified-show">
+        <div>
+          <p>Verified with: </p>
+        </div>
+        <div><i class="fa-brands fa-whatsapp"></i></div>
+        <div><i class="fa-regular fa-envelope"></i></div>
+      </div>
+      <button type="button" class="btn-book-stash-show"><i class="fa-solid fa-book"></i> Book Stash</button>
+    </div>
+  </div>
+</div>
+<div>
   <% if current_user == @book.user %>
     <%= link_to "Edit Book", edit_book_path(@book) %>
     <%= link_to "Browse books to trade", books_path %>
   <% else %>
-      <% if current_user.books.empty? %>
-        <h3>You don't have books to trade</h3>
-      <% else %>
-        <%= simple_form_for [@book, @transaction] do |f| %>
+    <% if current_user.books.empty? %>
+      <h3>You have no books to trade</h3>
+    <% else %>
+      <%= simple_form_for [@book, @transaction] do |f| %>
         <%= f.association :buyer_book, collection: current_user.books.available, label_method: :title %>
         <%= f.button :submit %>
       <% end %>
     <% end %>
   <% end %>
-
-
-
-<div class="perfil-show">
-  <div>
-    <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large", alt: "avatar-large" %>
-  </div>
-
-  <div>
-    <h5>
-      <%= @book.user.firstname %>
-    </h5>
-  </div>
-
-  <button type="button" class="btn btn-info btn-chat-show">Chat</button>
-
-  <hr>
-
-  <div class="verified-show">
-    <div>
-      <h5>Verified</h5>
-    </div>
-    <div><i class="fa-brands fa-whatsapp"></i></div>
-    <div><i class="fa-regular fa-envelope"></i></div>
-  </div>
-
-  <hr>
-
-  <button type="button" class="btn btn-info btn-book-stash-show">Book Stash</button>
 </div>
-
-</div>
-
-
 <div style="width: 100%; height: 600px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
