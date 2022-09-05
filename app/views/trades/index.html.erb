@@ -1,55 +1,104 @@
-<div class="container text-center">
-  <h1>My Trades</h1>
+<h1>My Trades</h1>
 
-  <% if @transactions.empty? %>
-    <div>
-      <p>You don't have an ongoing transaction</p>
-      <%= link_to "Browse books to trade", books_path %>
-    </div>
-  <% else %>
+<% if @transactions.empty? %>
+
+  <div>
+    <p>You don't have an ongoing transaction</p>
+    <%= link_to "Browse books to trade", books_path %>
+  </div>
+
+<% else %>
+  <div class="trade-grid">
     <% @transactions.each do |transaction| %>
     <div class="trade">
       <div class="trade-img">
-        <img alt="Thumbnail" src= "<%= transaction.seller_book.thumbnail %>" style="width: 100px;">
+        <img alt="Thumbnail" src= "<%= transaction.seller_book.thumbnail %>" style="width: 150px; height: 240px;">
 
         <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
         <lord-icon
           src="https://cdn.lordicon.com/kzwbetjp.json"
           trigger="hover"
-          colors="primary:#121331"
+          colors="primary:#C1BDBE"
           state="hover"
-          style="width:50px">
+          style="width:80px; height:50px;">
         </lord-icon>
 
-        <img alt="Thumbnail" src= "<%= transaction.buyer_book.thumbnail %>" style="width: 100px;">
-        <div class="trade-info">
-        <h3><%= transaction.buyer_book.title %>/<%= transaction.seller_book.title %></h3>
+        <img alt="Thumbnail" src= "<%= transaction.buyer_book.thumbnail %>" style="width: 150px; height: 240px;">
+      </div>
+
+      <div class="trade-info">
+
         <% if current_user == transaction.buyer %>
-          <%= link_to "Chatroom", chatroom_path(transaction.chatroom) %>
-          <%= link_to "Delete trade", trade_path(transaction), :method => :delete, data: {:confirm => "You sure?" , :turbo_method => :delete, :turbo => true} %>
+          <%= link_to chatroom_path(transaction.chatroom) do %>
+            <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+            <lord-icon
+              src="https://cdn.lordicon.com/uvextprq.json"
+              trigger="hover"
+              style="width:30px; height:30px;"
+              colors="primary:#C1BDBE">
+            </lord-icon>
+          <% end %>
+
+          <%= link_to trade_path(transaction), :method => :delete, data: {:confirm => "You sure?" , :turbo_method => :delete, :turbo => true} do %>
+            <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+            <lord-icon
+              src="https://cdn.lordicon.com/dovoajyj.json"
+              colors="primary:#C1BDBE"
+              trigger="hover"
+              style="width:30px; height:30px;">
+            </lord-icon>
+          <% end %>
+
         <% else %>
-          <%= link_to "Accept Trade", trade_path(transaction), :method => :patch, data: {:confirm => "You sure?" , :turbo_method => :patch, :turbo => true} %>
-          <%= link_to "Reject Trade", trade_path(transaction), :method => :delete, data: {:confirm => "You sure?" , :turbo_method => :delete, :turbo => true} %>
-          <%= link_to "Chatroom", chatroom_path(transaction.chatroom) %>
+          <%= link_to chatroom_path(transaction.chatroom) do %>
+            <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+            <lord-icon
+              src="https://cdn.lordicon.com/uvextprq.json"
+              trigger="hover"
+              style="width:30px; height:30px;"
+              colors="primary:#C1BDBE">
+            </lord-icon>
+          <% end %>
+
+          <%= link_to trade_path(transaction), :method => :patch, data: {:confirm => "You sure?" , :turbo_method => :patch, :turbo => true} do %>
+            <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+            <lord-icon
+              src="https://cdn.lordicon.com/hjeefwhm.json"
+              trigger="hover"
+              style="width:30px; height:30px;"
+              colors="primary:#C1BDBE">
+            </lord-icon>
+          <% end %>
+
+          <%= link_to trade_path(transaction), :method => :delete, data: {:confirm => "You sure?" , :turbo_method => :delete, :turbo => true} do %>
+            <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+            <lord-icon
+              src="https://cdn.lordicon.com/vfzqittk.json"
+              trigger="hover"
+              style="width:30px; height:30px;"
+              colors="primary:#C1BDBE">
+            </lord-icon>
+          <% end %>
         <% end %>
-        </div>
-      <% end %>
       </div>
     </div>
-  <% end %>
+    <% end %>
+  </div>
+<% end %>
 
-  <h1>Past Transactions</h1>
+<h1>Past Transactions</h1>
+<div class="trade-grid">
   <% @history_transactions.each do |transaction| %>
-    <h3><%= transaction.buyer_book.title %>/<%= transaction.seller_book.title %></h3>
-    <div class="star-rating">
-      <%= simple_form_for [transaction, @review], data: { controller: "form-submit" } do |f| %>
-          <div>
-            <% 5.times do |i| %>
-              <input data-action="click->form-submit#teste" type="radio" name="review[score]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
-            <% end %>
-            <%= f.button :submit, class: "d-none" %>
-          </div>
-        <% end %>
-      </div>
+  <h3><%= transaction.buyer_book.title %>/<%= transaction.seller_book.title %></h3>
+  <div class="star-rating">
+    <%= simple_form_for [transaction, @review], data: { controller: "form-submit" } do |f| %>
+        <div>
+          <% 5.times do |i| %>
+            <input data-action="click->form-submit#teste" type="radio" name="review[score]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
+          <% end %>
+          <%= f.button :submit, class: "d-none" %>
+        </div>
+      <% end %>
+    </div>
   <% end %>
 </div>
