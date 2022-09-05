@@ -3,7 +3,6 @@ class ChatroomPolicy < ApplicationPolicy
   end
 
   def show?
-    true
-    # record.trade.seller_book_id == user || record.trade.buyer_book_id
+    record.trade.seller == user || record.trade.buyer == user
   end
 end
