@@ -1,5 +1,5 @@
-<div class="mt-5">
-  <h1>Show da Book</h1>
+<div class="mt-1">
+  <h1>Trade a Book</h1>
   <%= @book.title %>
   <%= @book.author %>
   <%= @book.description %>
@@ -11,16 +11,16 @@
   <% end %>
 
   <% if current_user == @book.user %>
-    <%= link_to "Edit Book", edit_book_path(@book), class: "btn btn-outline-primary btn-sm" %>
-    <%= link_to "Browse books to trade", books_path, class: "btn btn-outline-primary btn-sm" %>
-    <%= link_to "Delete", book_path(@book), :method => :delete, data: {:confirm => "You sure?" , :turbo_method => :delete, :turbo => true}, class: "btn btn-outline-primary btn-sm" %>
+    <%= link_to "Edit Book", edit_book_path(@book), class: "btn btn-primary btn-sm" %>
+    <%= link_to "Browse books to trade", books_path, class: "btn btn-primary btn-sm" %>
+    <%= link_to "Delete", book_path(@book), :method => :delete, data: {:confirm => "You sure?" , :turbo_method => :delete, :turbo => true}, class: "btn btn-danger btn-sm" %>
   <% else %>
-      <% if current_user.books.empty? %>
-        <h3>You don't have books to trade</h3>
-      <% else %>
-        <%= simple_form_for [@book, @transaction] do |f| %>
+    <% if current_user.books.empty? %>
+      <h3>You don't have books to trade</h3>
+    <% else %>
+      <%= simple_form_for [@book, @transaction] do |f| %>
         <%= f.association :buyer_book, collection: current_user.books.available, label_method: :title %>
-        <%= f.button :submit %>
+        <%= f.button :submit, class: "btn-primary mb-3" %>
       <% end %>
     <% end %>
   <% end %>
