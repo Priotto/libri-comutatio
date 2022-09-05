@@ -1,10 +1,4 @@
 class ReviewsController < ApplicationController
-  def new
-    @review = Review.new
-    authorize @review
-    @transaction = Trade.find(params[:trade_id])
-  end
-
   def create
     @transaction = Trade.find(params[:trade_id])
     receiver = current_user
@@ -20,7 +14,7 @@ class ReviewsController < ApplicationController
       flash[:notice] = "Your review was sent!"
       redirect_to root_path
     else
-      render :new, status: :unprocessable_entity
+      render 'trades/index', status: :unprocessable_entity
     end
   end
 

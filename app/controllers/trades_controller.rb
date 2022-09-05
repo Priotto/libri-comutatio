@@ -4,6 +4,7 @@ class TradesController < ApplicationController
     @transactions = policy_scope(Trade)
     @transactions = Trade.where("seller_id = ? OR buyer_id = ?", current_user, current_user).where(accepted: false)
     @history_transactions = Trade.where("seller_id = ? OR buyer_id = ?", current_user, current_user).where("accepted = ?", true)
+    @review = Review.new
   end
 
   def create
