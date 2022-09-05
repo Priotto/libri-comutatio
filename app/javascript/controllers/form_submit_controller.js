@@ -8,7 +8,7 @@ export default class extends Controller {
     console.log('form submit conected')
   }
 
-  submit() {
-    this.inputTarget.submit();
+  submitForm(event) {
+    event.inputTarget.submit();
   }
 }
