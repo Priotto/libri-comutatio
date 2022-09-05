@@ -1,11 +1,19 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
-  include Pundit::Authorization
-
+  before_action :configure_permitted_parameters, if: :devise_controller?
   after_action :verify_authorized, except: %i[index autocomplete my], unless: :skip_pundit?
   after_action :verify_policy_scoped, only: %i[index autocomplete my], unless: :skip_pundit?
 
+  include Pundit::Authorization
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+
+  def configure_permitted_parameters
+    # For additional fields in app/views/devise/registrations/new.html.erb
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:address, :username, :firstname, :lastname, :reputation])
+
+    # For additional in app/views/devise/registrations/edit.html.erb
+    devise_parameter_sanitizer.permit(:account_update, keys: [:address, :username, :firstname, :lastname, :reputation])
+  end
 
   def user_not_authorized
     flash[:alert] = "You are not authorized to perform this action."

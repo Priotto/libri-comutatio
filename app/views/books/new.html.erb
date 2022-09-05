@@ -1,20 +1,10 @@
-<h1 class="text-center">New de Book</h1>
+<h1 class="text-center">Search a Book</h1>
 
 <div class="container">
-  <div class="max-w-xs mx auto bg-white">
-  <div class="mb-5">
-  <label for="simple-input" class="form-label">Select a Book</label>
   <div data-controller="autocomplete" data-autocomplete-url-value="/autocomplete">
-    <input name="simple-input" type="text" class="form-control" data-autocomplete-target="input" placeholder="Search a Book"/>
+    <label for="simple-input" class="form-label">Select a Book</label>
+    <input name="simple-input" type="text" class="form-control mb-3" id="simple-input" data-autocomplete-target="input" placeholder="Search a Book"/>
     <input type="hidden" name="book_id" data-autocomplete-target="hidden"/>
-    <ul data-autocomplete-target="results" class="list-group"></ul>
+    <div data-autocomplete-target="results" class="row"></div>
   </div>
-</div>
-
-<% if @books.present? %>
-<div id="books">
-  <%= render @books %>
-</div>
-<% end %>
-</div>
 </div>

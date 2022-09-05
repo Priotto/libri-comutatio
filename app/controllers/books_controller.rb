@@ -13,6 +13,11 @@ class BooksController < ApplicationController
     authorize @book
     @transaction = Trade.new
     @books = Book.available.where(user: current_user).order(:title)
+    @markers = [
+      {
+        lat: current_user.latitude,
+        lng: current_user.longitude
+      }]
     reviews = Review.where("sender_id = ?", @book.user.id)
     if reviews.empty?
       @reputation = 0.0
@@ -29,7 +34,9 @@ class BooksController < ApplicationController
 
   def autocomplete
     @books = policy_scope(Book).get_book_attributes(params[:q])
-    render partial: "book", formats: :html unless @books.empty?
+    unless @books.empty?
+      render partial: "book", collection: @books, formats: :html
+    end
   end
 
   def build
