@@ -1,4 +1,4 @@
-<h1>More details about your book</h1>
+<h1 class="text-center mb-5">Book details</h1>
 
 
 <div class="container">
@@ -6,6 +6,6 @@
 
   <%= simple_form_for (@book) do |f| %>
     <%= f.input :description %>
-    <%= f.button :submit %>
+    <%= f.button :submit, class:"mb-3" %>
   <% end %>
 </div>
