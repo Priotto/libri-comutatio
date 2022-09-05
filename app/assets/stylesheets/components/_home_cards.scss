@@ -183,7 +183,19 @@ $desktop: 1024px;
 }
 
 .cards-title{
-  left: 6%;
-  position: relative;
+  // position: relative;
   color: #4c423d;
+}
+
+.banner-title {
+  background: linear-gradient(to bottom left, #0F2027, #203A43, #2C5364);
+  // background: linear-gradient(90deg, rgba(4%,4%,47%,1) 0%, rgba(9, 9, 121,1) 35%, rgba(0,202,248,1) 100%);
+  color: #FFB201;
+  text-align: center;
+  font-size: 2em;
+  padding: 4px;
+  border-radius: 10px;
+  width:100%;
+  height: 10%;
+  // overflow: hidden;
 }
