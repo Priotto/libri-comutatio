@@ -1,5 +1,5 @@
 <div class="container text-center">
-  <h1>Index de Transactions</h1>
+  <h1>My Trades</h1>
 
   <% if @transactions.empty? %>
     <div>
@@ -7,18 +7,34 @@
       <%= link_to "Browse books to trade", books_path %>
     </div>
   <% else %>
-    <div>
     <% @transactions.each do |transaction| %>
-      <h3><%= transaction.buyer_book.title %>/<%= transaction.seller_book.title %></h3>
-      <% if current_user == transaction.buyer %>
-        <%= link_to "Chatroom", chatroom_path(transaction.chatroom) %>
-        <%= link_to "Delete trade", trade_path(transaction), :method => :delete, data: {:confirm => "You sure?" , :turbo_method => :delete, :turbo => true} %>
-      <% else %>
-        <%= link_to "Accept Trade", trade_path(transaction), :method => :patch, data: {:confirm => "You sure?" , :turbo_method => :patch, :turbo => true} %>
-        <%= link_to "Reject Trade", trade_path(transaction), :method => :delete, data: {:confirm => "You sure?" , :turbo_method => :delete, :turbo => true} %>
-        <%= link_to "Chatroom", chatroom_path(transaction.chatroom) %>
+    <div class="trade">
+      <div class="trade-img">
+        <img alt="Thumbnail" src= "<%= transaction.seller_book.thumbnail %>" style="width: 100px;">
+
+        <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+        <lord-icon
+          src="https://cdn.lordicon.com/kzwbetjp.json"
+          trigger="hover"
+          colors="primary:#121331"
+          state="hover"
+          style="width:50px">
+        </lord-icon>
+
+        <img alt="Thumbnail" src= "<%= transaction.buyer_book.thumbnail %>" style="width: 100px;">
+        <div class="trade-info">
+        <h3><%= transaction.buyer_book.title %>/<%= transaction.seller_book.title %></h3>
+        <% if current_user == transaction.buyer %>
+          <%= link_to "Chatroom", chatroom_path(transaction.chatroom) %>
+          <%= link_to "Delete trade", trade_path(transaction), :method => :delete, data: {:confirm => "You sure?" , :turbo_method => :delete, :turbo => true} %>
+        <% else %>
+          <%= link_to "Accept Trade", trade_path(transaction), :method => :patch, data: {:confirm => "You sure?" , :turbo_method => :patch, :turbo => true} %>
+          <%= link_to "Reject Trade", trade_path(transaction), :method => :delete, data: {:confirm => "You sure?" , :turbo_method => :delete, :turbo => true} %>
+          <%= link_to "Chatroom", chatroom_path(transaction.chatroom) %>
+        <% end %>
+        </div>
       <% end %>
-    <% end %>
+      </div>
     </div>
   <% end %>
 
@@ -29,7 +45,6 @@
       <%= simple_form_for [transaction, @review], data: { controller: "form-submit" } do |f| %>
           <div>
             <% 5.times do |i| %>
-
               <input data-action="click->form-submit#teste" type="radio" name="review[score]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
             <% end %>
             <%= f.button :submit, class: "d-none" %>
@@ -38,5 +53,3 @@
       </div>
   <% end %>
 </div>
-
-#
