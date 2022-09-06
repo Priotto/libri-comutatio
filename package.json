@@ -13,6 +13,7 @@
     "star-rating.js": "^4.3.0",
     "stimulus": "^3.1.0",
     "stimulus-autocomplete": "^3.0.2",
+    "stimulus-scroll-to": "^4.0.0",
     "sweetalert": "^2.1.2",
     "typed.js": "^2.0.12",
     "webpack": "^5.74.0",

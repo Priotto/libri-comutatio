@@ -10,9 +10,6 @@ application.register("chatroom-subscription", ChatroomSubscriptionController)
 import FormSubmitController from "./form_submit_controller"
 application.register("form-submit", FormSubmitController)
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
-
 import MapController from "./map_controller"
 application.register("map", MapController)
 
