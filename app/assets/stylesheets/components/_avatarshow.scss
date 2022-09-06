@@ -1,3 +1,7 @@
+*{
+  border: 1px solid red;
+}
+
 .avatar-show {
   width: 40px;
   border-radius: 50%;
@@ -70,21 +74,7 @@
   font-size: 1rem;
 }
 
-.btn-book-chat{
-  background-color: #FFB200;
-  border-radius: 1rem;
-  border: none;
-  color: white;
-  padding: 0.5rem 1rem;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 1.1rem;
-  margin: 4px 2px;
-  cursor: pointer;
-}
-
-.btn-book-stash-show{
+.btn-page-book{
   background-color: #FFB200;
   border-radius: 1rem;
   border: none;
@@ -171,4 +161,20 @@
 .book-description-show{
   display: flex;
   flex-direction: row;
+}
+
+.user-decisions{
+height: 25%;
+width: 100%;
+background-color: white;
+border-radius: 5px;
+padding: 50px 50px;
+}
+
+.user-decisions-book-exist{
+  display: flex;
+  gap: 0.8rem;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
