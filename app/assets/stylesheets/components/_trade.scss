@@ -1,0 +1,36 @@
+.trade {
+  background-color: white;
+  padding: 16px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 0.5rem;
+  width: 400px;
+}
+
+a {
+  text-decoration: none;
+  color: #C1BDBE;
+}
+
+a:hover{
+  color: #727F86;
+}
+
+.trade-img {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+}
+
+.trade-info {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px;
+  margin: 0 auto;
+}
+
+.trade-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 30px;
+}
