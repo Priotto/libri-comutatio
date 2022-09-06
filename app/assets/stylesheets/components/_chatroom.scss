@@ -1,16 +1,25 @@
+.chatroom-container {
+  display: flex;
+  padding: 30px;
+  align-items: center;
+}
+
 .chatroom {
   background: white;
-  margin-top: 9px;
   height: calc(100vh - 75px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 0.5rem;
   flex-grow: 1;
+  margin-left: 9px;
 
   h1 {
     border-bottom: 1px solid $gray-200;
     margin-bottom: 0;
     padding: 1rem;
+    color: #23414D;
   }
 
   .messages {
@@ -27,4 +36,22 @@
       margin-bottom: 0;
     }
   }
+}
+
+.trade-chat {
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background: white;
+  height: 550px;
+  width: 400px;
+  padding: 10px;
+
+    p {
+      font-family: $headers-font;
+      color: #581B20;
+    }
 }
