@@ -24,4 +24,8 @@ class BookPolicy < ApplicationPolicy
   def build?
     true
   end
+
+  def stash?
+    true
+  end
 end
