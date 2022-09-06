@@ -68,6 +68,7 @@
   <% if current_user == @book.user %>
     <div class="user-decisions-book-exist">
       <h5></h5>
+      <button></button>
       <%= link_to "Edit Book", edit_book_path(@book), class: "btn btn-outline-primary btn-sm" %>
       <%= link_to "Browse books to trade", books_path, class: "btn btn-outline-primary btn-sm" %>
       <%= link_to "Delete", book_path(@book), :method => :delete, data: {:confirm => "You sure?" , :turbo_method => :delete, :turbo => true}, class: "btn btn-outline-primary btn-sm" %>
