@@ -92,7 +92,9 @@ class BooksController < ApplicationController
   end
 
   def stash
-    @books = policy_scope(Book).where(user: book.user)
+    @book = Book.find(params[:book_id])
+    @books = policy_scope(Book).where(user: @book.user)
+    raise
   end
 
   private

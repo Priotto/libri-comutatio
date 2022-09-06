@@ -9,8 +9,11 @@ Rails.application.routes.draw do
     resources :trades, only: [:create]
     collection do
       get :my
-      get :stash
     end
+
+  end
+  resources :books, only: [:show] do
+    get :stash
   end
 
   resources :trades, only: %i[index destroy update] do
