@@ -52,7 +52,8 @@
       <% if current_user == @book.user %>
         <div class="user-decisions-book-exist">
           <%= link_to "Edit Book", edit_book_path(@book), class: "btn-page-book" %>
-          <%= link_to "Browse books to trade", books_path, class: "btn-page-book" %>
+          <%# Botão removido pois essa funcionalidade já existe na navbar%>
+          <%# link_to "Browse books to trade", books_path, class: "btn-page-book" %>
           <%= link_to "Delete", book_path(@book), :method => :delete, data: {:confirm => "You sure?" , :turbo_method => :delete, :turbo => true}, class: "btn-page-book" %>
         </div>
       <% else %>
