@@ -25,6 +25,7 @@
     color: #FFFEFE;
     text-shadow: 0 0 10px rgba(0,0,0,0.8);
     margin-bottom: 2rem; //Reset de css
+    font-family: $banner-font !important;
   }
 }
 
@@ -62,6 +63,6 @@
   border-left: 4px solid #581B20;
 }
 
-  .fa-search{
-    color:#23414D;
-  }
+.fa-search{
+  color: rgb(88,27,32);
+}
