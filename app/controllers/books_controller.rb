@@ -73,7 +73,7 @@ class BooksController < ApplicationController
     if @book.update(book_params_edit)
       flash[:notice] = "You updated this book!"
 
-      redirect_to book_path(@book)
+      redirect_to book_path(@book), status: :see_other
     else
       render :edit, status: :unprocessable_entity
     end
