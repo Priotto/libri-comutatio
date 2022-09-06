@@ -49,7 +49,15 @@
           <% end %>
         </div>
       </div>
-      <button type="button" class="btn-page-book" data-bs-toggle="modal" data-bs-target="#tradeModal"><i class="fa-solid fa-arrow-right-arrow-left"></i> Trade</button>
+      <% if current_user == @book.user %>
+        <div class="user-decisions-book-exist">
+          <%= link_to "Edit Book", edit_book_path(@book), class: "btn-page-book" %>
+          <%= link_to "Browse books to trade", books_path, class: "btn-page-book" %>
+          <%= link_to "Delete", book_path(@book), :method => :delete, data: {:confirm => "You sure?" , :turbo_method => :delete, :turbo => true}, class: "btn-page-book" %>
+        </div>
+      <% else %>
+        <button type="button" class="btn-page-book" data-bs-toggle="modal" data-bs-target="#tradeModal"><i class="fa-solid fa-arrow-right-arrow-left"></i> Trade</button>
+      <% end %>
     </div>
     <div class="verified-and-icons-show">
       <hr>
@@ -61,21 +69,13 @@
         <div><i class="fa-regular fa-envelope"></i></div>
       </div>
       <%# <button type="button" class="btn-page-book"><i class="fa-solid fa-book"></i> Book Stash</button> %>
-      <%= link_to "Book Stash", book_stash_path(@book), class: "btn-page-book" %>
+      <%= link_to book_stash_path(@book), class: "btn-page-book" do %>
+        <i class="fa-solid fa-book"></i> Book Stash
+      <% end %>
     </div>
   </div>
 </div>
-
-  <% if current_user == @book.user %>
-    <div class="user-decisions-book-exist">
-      <%= link_to "Edit Book", edit_book_path(@book), class: "btn-page-book" %>
-      <%= link_to "Browse books to trade", books_path, class: "btn-page-book" %>
-      <%= link_to "Delete", book_path(@book), :method => :delete, data: {:confirm => "You sure?" , :turbo_method => :delete, :turbo => true}, class: "btn-page-book" %>
-    </div>
-  <% else %>
-    <%= render "trades/modal", book: @book, transaction: @transaction %>
-  <% end %>
-
+<%= render "trades/modal", book: @book, transaction: @transaction %>
 <div class="mapa-show p-0 mb-5 col-12" style="width: 100%; height: 600px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
