@@ -31,3 +31,13 @@ body {
 .margin-container {
   margin-top:100px;
 }
+
+button, input[type="submit"], input[type="reset"] {
+	color: inherit;
+	border: none;
+	padding: 6px;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+//
