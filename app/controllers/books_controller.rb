@@ -83,6 +83,7 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     authorize @book
     @book.destroy
+    flash[:notice] = "Your book was deleted"
     redirect_to books_path, status: :see_other
   end
 
