@@ -3,7 +3,7 @@
   padding: 16px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 0.5rem;
-  width: 400px;
+  width: 350px;
 }
 
 a {
@@ -16,7 +16,11 @@ a:hover{
 }
 
 h1 {
-  color: #727F86;
+  color: #23414D;
+}
+
+h3 {
+  color: #23414D;
 }
 
 .trade-img {
@@ -40,4 +44,15 @@ h1 {
   border-radius: 0.5rem;
   padding: 16px;
   margin-bottom: 20px;
+  justify-items: center;
+}
+
+button, input[type="submit"], input[type="reset"] {
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+  background-color: transparent;
 }

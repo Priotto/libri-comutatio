@@ -73,7 +73,7 @@ class BooksController < ApplicationController
     if @book.update(book_params_edit)
       flash[:notice] = "You updated this book!"
 
-      redirect_to book_path(@book)
+      redirect_to book_path(@book), status: :see_other
     else
       render :edit, status: :unprocessable_entity
     end
@@ -89,6 +89,12 @@ class BooksController < ApplicationController
 
   def my
     @books = policy_scope(Book).where(user: current_user)
+  end
+
+  def stash
+    @book = Book.find(params[:book_id])
+    authorize @book
+    @books = policy_scope(Book).where(user: @book.user)
   end
 
   private

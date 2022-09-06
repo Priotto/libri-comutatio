@@ -19,7 +19,7 @@ $desktop: 1024px;
 .card-home {
 	width: 335px;
 	margin: 26px;
-	background-color: white;
+	background-color: #ffffff;
 	box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
 
   img {
@@ -82,7 +82,7 @@ $desktop: 1024px;
 		top: 50%;
 		z-index: 1;
 		padding: 0 20px;
-		color: white;
+		color: #ffffff;
 		transform: translateY(-50%);
 		text-align: center;
 		transition: .3s;
@@ -125,16 +125,16 @@ $desktop: 1024px;
 	&__button {
 		display: inline-block;
 		padding: 10px 20px;
-		color: white;
-		border: 1px solid white;
+		color: #ffffff;
+		border: 1px solid #ffffff;
 		font-size: 12px;
 		text-transform: uppercase;
 		text-decoration: none;
 		transition: .3s;
 
 		&:hover {
-			color: black;
-			background-color: white;
+			color: #000000;
+			background-color: #ffffff;
 		}
 	}
 }
@@ -147,7 +147,7 @@ $desktop: 1024px;
 	box-sizing: border-box;
 	width: 100%;
 	padding: 20px 10px;
-	background-color: white;
+	background-color: #ffffff;
 	transform: translateX(-50%);
 	font-family: 'Roboto', sans-serif;
 	font-size: 14px;

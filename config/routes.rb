@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     collection do
       get :my
     end
+
+  end
+  resources :books, only: [:show] do
+    get :stash
   end
 
   resources :trades, only: %i[index destroy update] do
