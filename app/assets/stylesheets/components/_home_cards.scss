@@ -8,26 +8,6 @@ $desktop: 1024px;
 	}
 }
 
-// html {
-//   box-sizing: border-box;
-//   font-size: 62.5%;
-
-//   *,
-//   *:before,
-//   *:after {
-//     box-sizing: inherit;
-//   }
-// }
-
-// body {
-// 	display: flex;
-// 	justify-content: center;
-// 	align-items: center;
-// 	width: 100vw;
-// 	height: 100vh;
-// 	background-color: #e6e6e6;
-// }
-
 .container-card-home {
 	display: flex;
 	flex-wrap: wrap;
@@ -117,7 +97,6 @@ $desktop: 1024px;
 		display: -webkit-box;
 		max-height: 85px;
     overflow: hidden;
-		font-family: 'Playfair Display', serif;
 		font-size: 23px;
 		line-height: 28px;
 		text-shadow: 0px 1px 5px black;
@@ -131,7 +110,6 @@ $desktop: 1024px;
 		max-height: 150px;
 		margin: 20px 0;
 		overflow: hidden;
-		font-family: 'Roboto', sans-serif;
 		font-size: 16px;
 		line-height: 20px;
 		text-overflow: ellipsis;
@@ -149,7 +127,6 @@ $desktop: 1024px;
 		padding: 10px 20px;
 		color: white;
 		border: 1px solid white;
-		font-family: 'Roboto', sans-serif;
 		font-size: 12px;
 		text-transform: uppercase;
 		text-decoration: none;
