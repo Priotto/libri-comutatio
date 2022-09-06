@@ -1,4 +1,4 @@
-.bannero{
+.banner{
   display: flex;
   height: calc(100vh - 64px);
   width: 100%;
@@ -18,7 +18,7 @@
   flex-direction: column;
   width: 100%;
   padding: 50px;
-
+  font-family: $banner-font;
 
   h1{
     font-size: 5rem;
@@ -26,6 +26,7 @@
     color: #FFFEFE;
     text-shadow: 0 0 10px rgba(0,0,0,0.8);
     margin-bottom: 2rem; //Reset de css
+    font-family: $banner-font !important;
   }
 }
 
@@ -63,6 +64,6 @@
   border-left: 4px solid #581B20;
 }
 
- .fa-search{
-  color:#23414D;
- }
+.fa-search{
+  color: rgb(88,27,32);
+}

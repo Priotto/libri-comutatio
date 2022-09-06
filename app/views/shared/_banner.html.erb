@@ -1,8 +1,8 @@
-<div class="bannero">
+<div class="banner">
   <div class="slogan">
     <h1><span data-controller="typed-js"></span></h1>
     <div class="box-of-search">
-       <%= form_with url: books_path, method: :get, class: "d-flex w-100" do %>
+        <%= form_with url: books_path, method: :get, class: "d-flex w-100" do %>
           <%= text_field_tag :query,
           params[:query],
           class: "search-design form-control",
