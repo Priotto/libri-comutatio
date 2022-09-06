@@ -4,7 +4,7 @@
           <strong class="d-inline-block mb-2 text-primary"><%= book[:title] %></strong>
           <div class="mb-1 text-muted small"><%= book[:author] %></div>
           <div class="mb-1 text-muted small"><%= book[:published_date] %></div>
-          <%= button_to "Add book", book_build_path(book: book), method: :post, class: "btn btn-outline-primary btn-sm" %>
+          <%= button_to "Add book", book_build_path(book: book), method: :post, class: "btn btn-primary btn-sm" %>
       </div>
       <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]" src= "<%= book[:thumbnail] %>" style="width: 200px; height: 250px;">
     </div>
