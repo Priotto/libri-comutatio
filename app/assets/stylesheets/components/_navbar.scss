@@ -19,7 +19,7 @@
 
 .nav-link{
   margin-right: 10px;
-  font-size: 16px;
+  font-size: 1.25rem;
   color: #C1BDBE;
   &:hover {
     color: #fff;
@@ -55,6 +55,7 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-family: $banner-font;
   align-items: center;
+  margin-bottom: 0;
 }
 
 #li-bg{
