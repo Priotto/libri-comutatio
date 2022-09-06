@@ -1,12 +1,12 @@
 .navbar {
   transition: 0.5s background-color ease;
   justify-content: space-between;
-  background: linear-gradient(to bottom left, #0F2027, #203A43, #2C5364);
+  background: linear-gradient(to bottom left, rgba(15, 32, 39, 0.7), rgba(32, 58, 67, 0.7), rgba(44, 83, 100, 0.7));
+  font-family: $banner-font;
 }
 
 .navbar-white {
-
-  background: linear-gradient(156deg, rgba(88,27,32,1) 42%, rgba(33,51,56,1) 100%);
+  background: linear-gradient(156deg, rgba(88,27,32, 0.7) 42%, rgba(33,51,56, 0.7));
 }
 
 .navbar .navbar-collapse {
@@ -20,7 +20,7 @@
 .nav-link{
   margin-right: 10px;
   font-size: 16px;
-  color: #727F86;
+  color: #C1BDBE;
   &:hover {
     color: #fff;
   }
@@ -31,14 +31,14 @@
   margin-right: 14px;
   padding-right: 78px;
   padding-left: 15px;
-  color: #727F86;
+  color: #C1BDBE;
 }
 
 .dropdown-menu a:hover
   {
     color: #FFFEFE;
     background: linear-gradient(to bottom left, rgba(15, 32, 39, 0.8), rgba(32, 58, 67, 0.5), rgba(44, 83, 100, 0.6));
-    text-decoration:none;
+    text-decoration: none;
     background: -webkit-linear-gradient(#eee, #C1BDBE33);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -51,12 +51,9 @@
 }
 
 .titulo-nav {
-  // color: #277BC0;
-
-  background: -webkit-linear-gradient(#eee, #C1BDBE33);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-family: $banner-font;
 }
 
 #li-bg{
