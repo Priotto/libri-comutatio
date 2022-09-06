@@ -1,6 +1,6 @@
 #bttn-back {
   display: inline-block;
-  background-color: #FF9800;
+  background-color: transparent;
   width: 50px;
   height: 50px;
   text-align: center;
@@ -23,11 +23,14 @@
 }
 #bttn-back:hover {
   cursor: pointer;
-  background-color: #333;
 }
 #bttn-back:active {
-  background-color: #555;
+  background-color: #C1BDBE;
 }
 #bttn-back.show {
   visibility: visible;
+}
+
+.toptop{
+  width: 50px;
 }
