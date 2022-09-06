@@ -39,7 +39,7 @@
             </lord-icon>
           <% end %>
 
-          <%= link_to trade_path(transaction), :method => :delete, data: {:confirm => "You sure?" , :turbo_method => :delete, :turbo => true} do %>
+          <%= button_to trade_path(transaction), :method => :delete, data: {:confirm => "You sure?" , :turbo_method => :delete, :turbo => true} do %>
             <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
             <lord-icon
               src="https://cdn.lordicon.com/dovoajyj.json"
@@ -60,7 +60,7 @@
             </lord-icon>
           <% end %>
 
-          <%= link_to trade_path(transaction), :method => :patch, data: {:confirm => "You sure?" , :turbo_method => :patch, :turbo => true} do %>
+          <%= button_to trade_path(transaction), :method => :patch, data: {:confirm => "You sure?" , :turbo_method => :patch, :turbo => true} do %>
             <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
             <lord-icon
               src="https://cdn.lordicon.com/hjeefwhm.json"
@@ -70,7 +70,7 @@
             </lord-icon>
           <% end %>
 
-          <%= link_to trade_path(transaction), :method => :delete, data: {:confirm => "You sure?" , :turbo_method => :delete, :turbo => true} do %>
+          <%= button_to trade_path(transaction), :method => :delete, data: {:confirm => "You sure?" , :turbo_method => :delete, :turbo => true} do %>
             <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
             <lord-icon
               src="https://cdn.lordicon.com/vfzqittk.json"
@@ -107,12 +107,19 @@
 
       <div class="trade-info">
         <div class="star-rating">
+        <% if transaction.reviews.empty? %>
           <%= simple_form_for [transaction, @review], data: { controller: "form-submit" } do |f| %>
               <% 5.times do |i| %>
-                <input data-action="click->form-submit#teste" type="radio" name="review[score]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
+                <input data-action="click->form-submit#submit" type="radio" name="review[score]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
               <% end %>
               <%= f.button :submit, class: "d-none" %>
           <% end %>
+        <% else %>
+          <% transaction.reviews.last.score.times do %>
+            <input type="radio" name="review[score]" value="<%= 1 %>" />
+          <% end %>
+        <% end %>
+
         </div>
       </div>
     </div>
