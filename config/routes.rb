@@ -9,7 +9,6 @@ Rails.application.routes.draw do
     resources :trades, only: [:create]
     collection do
       get :my
-      get :stash
     end
   end
 
