@@ -1,9 +1,9 @@
-<h1>My Trades</h1>
+<h1 class="text-center">My Trades</h1>
 
 <% if @transactions.empty? %>
 
-  <div>
-    <p>You don't have an ongoing transaction</p>
+  <div class="trade">
+    <h3>You don't have an ongoing transaction</h3>
     <%= link_to "Browse books to trade", books_path %>
   </div>
 
@@ -86,19 +86,35 @@
   </div>
 <% end %>
 
-<h1>Past Transactions</h1>
+<h1 class="text-center">Past Transactions</h1>
 <div class="trade-grid">
   <% @history_transactions.each do |transaction| %>
-  <h3><%= transaction.buyer_book.title %>/<%= transaction.seller_book.title %></h3>
-  <div class="star-rating">
-    <%= simple_form_for [transaction, @review], data: { controller: "form-submit" } do |f| %>
-        <div>
-          <% 5.times do |i| %>
-            <input data-action="click->form-submit#teste" type="radio" name="review[score]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
+    <div class="trade">
+      <div class="trade-img">
+        <img alt="Thumbnail" src= "<%= transaction.seller_book.thumbnail %>" style="width: 150px; height: 240px;">
+
+        <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
+        <lord-icon
+          src="https://cdn.lordicon.com/kzwbetjp.json"
+          trigger="hover"
+          colors="primary:#C1BDBE"
+          state="hover"
+          style="width:80px; height:50px;">
+        </lord-icon>
+
+        <img alt="Thumbnail" src= "<%= transaction.buyer_book.thumbnail %>" style="width: 150px; height: 240px;">
+      </div>
+
+      <div class="trade-info">
+        <div class="star-rating">
+          <%= simple_form_for [transaction, @review], data: { controller: "form-submit" } do |f| %>
+              <% 5.times do |i| %>
+                <input data-action="click->form-submit#teste" type="radio" name="review[score]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
+              <% end %>
+              <%= f.button :submit, class: "d-none" %>
           <% end %>
-          <%= f.button :submit, class: "d-none" %>
         </div>
-      <% end %>
+      </div>
     </div>
   <% end %>
 </div>
