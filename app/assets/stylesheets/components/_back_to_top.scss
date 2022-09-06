@@ -1,0 +1,36 @@
+#bttn-back {
+  display: inline-block;
+  background-color: transparent;
+  width: 50px;
+  height: 50px;
+  text-align: center;
+  border-radius: 4px;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  transition: background-color .3s,
+    opacity .5s, visibility .5s;
+  z-index: 1000;
+}
+
+
+#bttn-back::after {
+  font-weight: normal;
+  font-style: normal;
+  font-size: 2em;
+  line-height: 50px;
+  color: #fff;
+}
+#bttn-back:hover {
+  cursor: pointer;
+}
+#bttn-back:active {
+  background-color: #C1BDBE;
+}
+#bttn-back.show {
+  visibility: visible;
+}
+
+.toptop{
+  width: 50px;
+}
