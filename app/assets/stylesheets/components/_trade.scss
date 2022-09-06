@@ -42,3 +42,13 @@ h1 {
   margin-bottom: 20px;
   justify-items: center;
 }
+
+button, input[type="submit"], input[type="reset"] {
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+  background-color: transparent;
+}
