@@ -1,8 +1,7 @@
 .banner{
   display: flex;
-  height: calc(100vh - 64px);
+  height: 100vh;
   width: 100%;
-  margin-top: 64px;
   background-image: image-url("bannerbg.jpeg");
   background-size: cover;
   background-repeat: no-repeat;
