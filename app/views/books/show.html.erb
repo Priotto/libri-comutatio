@@ -34,22 +34,25 @@
     </div>
   </div>
   <div class="perfil-show col-3">
-    <div>
-      <img class="avatar-large-show" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
-    </div>
-    <div>
-      <h5>
-        <%= @book.user.firstname %>
-      </h5>
-      <div class="container-show-book">
-        <% if @reputation == 0 %>
-          <p>This user is new</p>
-        <% else %>
-          <%= @reputation %>
-        <% end %>
+    <div class="upper-half-perfil-show">
+      <div>
+        <img class="avatar-large-show" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
       </div>
+      <div>
+        <h5>
+          <%= @book.user.firstname %>
+        </h5>
+        <div class="container-show-book">
+          <% if @reputation == 0 %>
+            <p>This user is new</p>
+          <% else %>
+            <%= @reputation %>
+          <% end %>
+        </div>
+      </div>
+      <button type="button" class="btn-page-book"><i class="fa-solid fa-arrow-right-arrow-left"></i> Trade</button>
     </div>
-    <button type="button" class="btn-page-book"><i class="fa-solid fa-arrow-right-arrow-left"></i> Trade</button>
+
     <div class="verified-and-icons-show">
       <hr>
       <div class="verified-show">
@@ -59,37 +62,34 @@
         <div><i class="fa-brands fa-whatsapp"></i></div>
         <div><i class="fa-regular fa-envelope"></i></div>
       </div>
-      <button type="button" class="btn-page-book"><i class="fa-solid fa-book"></i> Book Stash</button>
+      <%# <button type="button" class="btn-page-book"><i class="fa-solid fa-book"></i> Book Stash</button> %>
+      <%= link_to "Book Stash", book_stash_path(@book), class: "btn-page-book" %>
     </div>
   </div>
 </div>
-
 <div class="user-decisions mb-5">
   <% if current_user == @book.user %>
     <div class="user-decisions-book-exist">
-      <h5></h5>
-      <button></button>
       <%= link_to "Edit Book", edit_book_path(@book), class: "btn-page-book" %>
       <%= link_to "Browse books to trade", books_path, class: "btn-page-book" %>
       <%= link_to "Delete", book_path(@book), :method => :delete, data: {:confirm => "You sure?" , :turbo_method => :delete, :turbo => true}, class: "btn-page-book" %>
     </div>
   <% else %>
     <% if current_user.books.empty? %>
-    <div>
-      <h3>You have no books to trade</h3>
-    </div>
+      <div>
+        <h3>You have no books to trade</h3>
+      </div>
     <% else %>
-    <div>
-      <h3>Available Books</h3>
-      <%= simple_form_for [@book, @transaction] do |f| %>
-      <%= f.association :buyer_book, collection: current_user.books.available, label_method: :title %>
-      <%= f.button :submit %>
-      <% end %>
-    </div>
+      <div>
+        <h3>Available Books</h3>
+        <%= simple_form_for [@book, @transaction] do |f| %>
+          <%= f.association :buyer_book, collection: current_user.books.available, label_method: :title %>
+          <%= f.button :submit, class: "btn-page-book" %>
+        <% end %>
+      </div>
     <% end %>
   <% end %>
 </div>
-
 <div class="mapa-show p-0 mb-5 col-12" style="width: 100%; height: 600px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"

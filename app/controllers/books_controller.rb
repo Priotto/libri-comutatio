@@ -91,6 +91,11 @@ class BooksController < ApplicationController
     @books = policy_scope(Book).where(user: current_user)
   end
 
+  def stash
+    @book = Book.find(params[:book_id])
+    @books = policy_scope(Book).where(user: @book.user)
+  end
+
   private
 
   def book_params_edit
