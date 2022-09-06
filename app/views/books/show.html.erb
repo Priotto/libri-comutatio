@@ -32,6 +32,7 @@
       </div>
     </div>
   </div>
+
   <div class="perfil-show col-3">
     <div class="upper-half-perfil-show">
       <div>
@@ -49,7 +50,7 @@
           <% end %>
         </div>
       </div>
-      <button type="button" class="btn-page-book"><i class="fa-solid fa-arrow-right-arrow-left"></i> Trade</button>
+      <button type="button" class="btn-page-book" data-toggle="modal" data-target="#exampleModalLong"><i class="fa-solid fa-arrow-right-arrow-left"></i> Trade</button>
     </div>
 
     <div class="verified-and-icons-show">
@@ -93,4 +94,25 @@
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
   data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+</div>
+
+
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
