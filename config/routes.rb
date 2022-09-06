@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
+  get '/reborn', to: "pages#reborn"
+
   get '/autocomplete', to: 'books#autocomplete'
   post '/build', to: 'books#build', as: "book_build" #alterar para get
 

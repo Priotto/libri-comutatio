@@ -1,0 +1,48 @@
+.bannero{
+  display: flex;
+  height: calc(100vh - 64px);
+  width: 100%;
+  margin-top: 64px;
+  background-image: image-url("bannerbg.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position-x: center;
+  background-position-y: 55%; //Subir a imagem
+}
+
+.slogan{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 50px;
+
+
+  h1{
+    font-size: 5rem;
+    font-weight: bold;
+    color: #FFFEFE;
+    text-shadow: 0 0 10px rgba(0,0,0,0.8);
+    margin-bottom: 2rem; //Reset de css
+  }
+}
+
+.search-design{
+  width: 100%;
+  padding: 10px;
+  border: 4px solid #111d5e;
+  border-radius:10px 0 0 10px ;
+  border-right: none;
+  outline: none;
+  font-size: 20px;
+  color: #FFB201;
+  background: #ffffff;
+}
+
+.box-of-search{
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
