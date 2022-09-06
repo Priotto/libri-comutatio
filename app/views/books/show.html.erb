@@ -25,13 +25,13 @@
             <div class="book-sentence-show"><i class="fa-solid fa-quote-left"></i>
               <p><%= @book.description %></p>
             </div>
-            <div><%= @book.user.firstname %></div>
+            <div>Comentado por: <%= @book.user.firstname.capitalize %></div>
           </div>
         </div>
       </div>
     </div>
   </div>
- 
+
   <div class="perfil-show col-3">
     <div>
       <img class="avatar-large-show" alt="avatar-large" src="https://kitt.lewagon.com/placeholder/users/arthur-littm" />
@@ -78,7 +78,7 @@
     <% end %>
   <% end %>
 </div>
- 
+
 <div class="mapa-show p-0 col-12" style="width: 100%; height: 600px;"
   data-controller="map"
   data-map-markers-value="<%= @markers.to_json %>"
