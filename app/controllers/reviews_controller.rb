@@ -12,8 +12,9 @@ class ReviewsController < ApplicationController
 
     if @review.save
       flash[:notice] = "Your review was sent!"
-      redirect_to root_path
+      redirect_to trades_path, status: :see_other
     else
+      flash[:alert] = "Something went wrong!"
       render 'trades/index', status: :unprocessable_entity
     end
   end
