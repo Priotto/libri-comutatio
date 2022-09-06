@@ -8,9 +8,7 @@ export default class extends Controller {
     console.log('form submit conected')
   }
 
-  teste() {
-    // console.log(this.inputTarget)
-    console.log(this.element);
+  submit() {
     this.element.submit();
   }
 }
