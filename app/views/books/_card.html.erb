@@ -8,7 +8,7 @@
             <div class="mb-1 text-muted small"><i class="fa-solid fa-user"></i> <%= book.author %></div>
             <p class="card-text mb-auto"><i class="fa-solid fa-quote-left quotescards"></i> <%= book.description %>.</p>
 
-            <%= link_to "Book info", book_path(book), class: "btn btn-primary btn-rounded" %>
+            <%= link_to "Book info", book_path(book), id: "buttoncard", class: "btn btn-primary btn-rounded" %>
         </div>
         <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]" src= "<%= book.thumbnail %>" style="width: 200px; height: 250px;">
       </div>
