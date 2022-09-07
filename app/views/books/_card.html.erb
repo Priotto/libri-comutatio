@@ -6,6 +6,7 @@
             <div class="mb-1 text-muted small"><%= book.published_date %></div>
             <div class="mb-1 text-muted small"><%= book.author %></div>
             <p class="card-text mb-auto"><%= book.description %>.</p>
+            <p class="card-text mb-auto"><%= book.rating %></p>
             <%= link_to "Book info", book_path(book), class: "btn btn-primary btn-rounded" %>
         </div>
         <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]" src= "<%= book.thumbnail %>" style="width: 200px; height: 250px;">
