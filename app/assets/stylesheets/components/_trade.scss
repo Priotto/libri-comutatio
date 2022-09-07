@@ -4,23 +4,37 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 0.5rem;
   width: 350px;
-}
+  button, input[type="submit"], input[type="reset"] {
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    background-color: transparent !important;
+  }
+  a {
+    text-decoration: none;
+    color: #C1BDBE;
+  }
 
-a {
-  text-decoration: none;
-  color: #C1BDBE;
-}
+  a:hover{
+    color: #727F86;
+  }
 
-a:hover{
-  color: #727F86;
+  h1 {
+    color: #23414D;
+  }
+
+  h3 {
+    color: #23414D;
+  }
+
 }
 
 h1 {
   color: #23414D;
-}
-
-h3 {
-  color: #23414D;
+  margin-bottom: 1.5rem;
 }
 
 .trade-img {
@@ -45,14 +59,4 @@ h3 {
   padding: 16px;
   margin-bottom: 20px;
   justify-items: center;
-}
-
-button, input[type="submit"], input[type="reset"] {
-	color: inherit;
-	border: none;
-	padding: 0;
-	font: inherit;
-	cursor: pointer;
-	outline: inherit;
-  background-color: transparent;
 }

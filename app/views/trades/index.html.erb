@@ -29,7 +29,7 @@
       <div class="trade-info">
 
         <% if current_user == transaction.buyer %>
-          <%= link_to chatroom_path(transaction.chatroom) do %>
+          <%= button_to chatroom_path(transaction.chatroom) do %>
             <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
             <lord-icon
               src="https://cdn.lordicon.com/uvextprq.json"
@@ -50,7 +50,7 @@
           <% end %>
 
         <% else %>
-          <%= link_to chatroom_path(transaction.chatroom) do %>
+          <%= button_to chatroom_path(transaction.chatroom) do %>
             <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
             <lord-icon
               src="https://cdn.lordicon.com/uvextprq.json"
