@@ -2,7 +2,7 @@
   <div class="card-body d-flex flex-column align-items-start">
     <h3 class="d-inline-block mb-2"><%= @book.title %></h3>
     <div class="mb-1 text-muted small"><%= @book.publisher %></div>
-    <p class="card-text mb-auto"><%= @book.synopsis.truncate(1000) %></p>
+    <p class="card-text mb-auto"><%= @book.synopsis.truncate(1000) unless @book.synopsis.nil? %></p>
   </div>
   <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]" src= "<%= @book[:thumbnail] %>" style="width: 200px; height: 250px;">
 </div>
