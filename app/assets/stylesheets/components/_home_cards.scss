@@ -20,7 +20,7 @@ $desktop: 1024px;
 	width: 335px;
 	margin: 26px;
 	background-color: #ffffff;
-	box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
+	box-shadow: 0 px 10px 0 rgba(0, 0, 0, 0.5);
 
   img {
     width: 100%;
@@ -100,12 +100,13 @@ $desktop: 1024px;
 	}
 
 	&__title {
+    color: white;
 		display: -webkit-box;
 		max-height: 85px;
     overflow: hidden;
 		font-size: 23px;
 		line-height: 28px;
-		text-shadow: 0px 1px 5px black;
+		text-shadow: 0px 2px 5px #23414D;
 		text-overflow: ellipsis;
     -webkit-line-clamp: 3;
 		-webkit-box-orient: vertical;
