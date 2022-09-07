@@ -54,9 +54,27 @@ h1 {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 30px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: 0.5rem;
   padding: 16px;
   margin-bottom: 20px;
   justify-items: center;
+}
+
+.cards-title{
+  // position: relative;
+  color: #4c423d;
+}
+
+.banner-title {
+  background: linear-gradient(to bottom left, #0F2027, #203A43, #2C5364);
+  color: #C1BDBE;
+  box-shadow: rgba(15, 32, 39, 0.4) -5px 5px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  font-size: 2em;
+  padding: 4px;
+  border-radius: 10px;
+  width:100%;
+  height: 10%;
+  font-family: $headers-font;
 }

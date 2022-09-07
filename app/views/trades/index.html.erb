@@ -1,4 +1,4 @@
-<h1 class="text-center">My Trades</h1>
+<div class="cards-title"><h1 class="banner-title">My Trades</h1></div>
 
 <% if @transactions.empty? %>
   <div class="trade-grid">
@@ -29,7 +29,7 @@
       <div class="trade-info">
 
         <% if current_user == transaction.buyer %>
-          <%= button_to chatroom_path(transaction.chatroom) do %>
+          <%= link_to chatroom_path(transaction.chatroom) do %>
             <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
             <lord-icon
               src="https://cdn.lordicon.com/uvextprq.json"
@@ -50,7 +50,7 @@
           <% end %>
 
         <% else %>
-          <%= button_to chatroom_path(transaction.chatroom) do %>
+          <%= link_to chatroom_path(transaction.chatroom) do %>
             <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
             <lord-icon
               src="https://cdn.lordicon.com/uvextprq.json"
@@ -86,7 +86,8 @@
   </div>
 <% end %>
 
-<h1 class="text-center">Past Transactions</h1>
+<div class="cards-title"><h1 class="banner-title">Past Transactions</h1></div>
+
 <div class="trade-grid">
   <% @history_transactions.each do |transaction| %>
     <div class="trade">
