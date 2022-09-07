@@ -15,8 +15,8 @@ class BooksController < ApplicationController
     @books = Book.available.where(user: current_user).order(:title)
     @markers = [
       {
-        lat: current_user.latitude,
-        lng: current_user.longitude
+        lat: @book.latitude,
+        lng: @book.longitude
       }]
     reviews = Review.where("sender_id = ?", @book.user.id)
     if reviews.empty?
@@ -69,7 +69,7 @@ class BooksController < ApplicationController
   def update
     @book = Book.find(params[:id])
     authorize @book
-
+    @book.address = current_user.address
     if @book.update(book_params_edit)
       flash[:notice] = "You updated this book!"
 
@@ -112,6 +112,7 @@ class BooksController < ApplicationController
                                  :synopsis,
                                  :rating,
                                  :user_id,
+                                 :address,
                                  :latitude,
                                  :longitude)
   end
