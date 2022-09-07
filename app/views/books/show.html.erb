@@ -52,15 +52,23 @@
       </div>
       <% if current_user == @book.user %>
         <div class="user-decisions-book-exist">
-          <%= link_to "Edit Book", edit_book_path(@book), class: "btn-page-book" %>
+          <%= link_to edit_book_path(@book), class: "icon-show" do %>
+            <i class="fa-solid fa-pen-to-square"></i>
+          <% end %>
           <%# Botão removido pois essa funcionalidade já existe na navbar%>
           <%# link_to "Browse books to trade", books_path, class: "btn-page-book" %>
-          <%= link_to "Delete", book_path(@book), :method => :delete, data: {:confirm => "You sure?" , :turbo_method => :delete, :turbo => true}, class: "btn-page-book" %>
+          <%= link_to book_path(@book), :method => :delete, data: {:confirm => "You sure?" , :turbo_method => :delete, :turbo => true}, class: "icon-show" do %>
+            <i class="fa-regular fa-trash-can"></i>
+          <% end %>
         </div>
       <% else %>
         <button type="button" class="btn-page-book" data-bs-toggle="modal" data-bs-target="#tradeModal"><i class="fa-solid fa-arrow-right-arrow-left"></i> Trade</button>
       <% end %>
     </div>
+    <%# <button type="button" class="btn-page-book"><i class="fa-solid fa-book"></i> Book Stash</button> %>
+    <%= link_to book_stash_path(@book), class: "btn-page-book" do %>
+      <i class="fa-solid fa-book"></i> Book Stash
+    <% end %>
     <div class="verified-and-icons-show">
       <hr>
       <div class="verified-show">
@@ -70,10 +78,6 @@
         <div><i class="fa-brands fa-whatsapp"></i></div>
         <div><i class="fa-regular fa-envelope"></i></div>
       </div>
-      <%# <button type="button" class="btn-page-book"><i class="fa-solid fa-book"></i> Book Stash</button> %>
-      <%= link_to book_stash_path(@book), class: "btn-page-book" do %>
-        <i class="fa-solid fa-book"></i> Book Stash
-      <% end %>
     </div>
   </div>
 </div>

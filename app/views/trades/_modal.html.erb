@@ -17,7 +17,7 @@
             <h3>Available Books</h3>
             <%= simple_form_for [@book, @transaction] do |f| %>
               <%= f.association :buyer_book, collection: current_user.books.available, label_method: :title %>
-              <%= f.submit "Trade" , class: "btn-page-book" %>
+              <%= f.submit "Trade" , class: "btn-trade" %>
             <% end %>
           </div>
         <% end %>
