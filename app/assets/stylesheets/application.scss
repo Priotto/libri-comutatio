@@ -24,6 +24,11 @@ body {
   flex-direction: column;
 }
 
+a {
+  text-decoration: none;
+  color: #23414D;
+}
+
 .footer {
   margin-top: auto;
 }
@@ -39,5 +44,6 @@ button, input[type="submit"], input[type="reset"] {
 	font: inherit;
 	cursor: pointer;
 	outline: inherit;
+  background-color: #727F86;
 }
 //
