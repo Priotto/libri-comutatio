@@ -117,7 +117,7 @@
   align-self: center;
   overflow: hidden;
   background: white;
-  padding: 1rem 3rem;
+  padding: 3rem 3rem;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 0.5rem;
 }
@@ -158,7 +158,8 @@
 
 .publisher-and-year{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  margin-bottom: 0.5rem;
   p{
     margin: 0;
   }
@@ -167,6 +168,7 @@
 .book-sentence-show{
   display: flex;
   flex-direction: row;
+  margin-top: 0.5rem;
   gap: 1rem;
 }
 
@@ -203,4 +205,9 @@ padding: 50px 50px;
 .icon-show{
   color: #C1BDBE;
   font-size: 24px;
+}
+
+.user-icon-show{
+  font-size: 88px;
+  color: #581B20;
 }
