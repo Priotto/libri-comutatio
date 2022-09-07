@@ -20,7 +20,7 @@ puts 'users created'
 
 puts 'creating books'
 
-10.times do
+40.times do
   books = Book.get_book_attributes(Faker::Book.title)
   puts "###############LIVRO#############:   #{books}"
 
