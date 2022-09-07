@@ -3,10 +3,11 @@
       <div class="card flex-md-row mb-4  h-md-250">
         <div class="card-body d-flex justify-content-between flex-column align-items-start">
             <h3 class="d-inline-block mb-2"><%= book.title %></h3>
-            <div class="mb-1 text-muted small"><%= book.published_date %></div>
-            <div class="mb-1 text-muted small"><%= book.author %></div>
-            <p class="card-text mb-auto"><%= book.description %>.</p>
-            <p class="card-text mb-auto"><%= book.rating %></p>
+            <div class="mb-1 text-muted small"><i class="fa-solid fa-star starcards"></i><%= book.rating %></div>
+            <div class="mb-1 text-muted small"><i class="fa-regular fa-calendar calendarcards"></i> <%= book.published_date %></div>
+            <div class="mb-1 text-muted small"><i class="fa-solid fa-user"></i> <%= book.author %></div>
+            <p class="card-text mb-auto"><i class="fa-solid fa-quote-left quotescards"></i> <%= book.description %>.</p>
+
             <%= link_to "Book info", book_path(book), class: "btn btn-primary btn-rounded" %>
         </div>
         <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]" src= "<%= book.thumbnail %>" style="width: 200px; height: 250px;">
