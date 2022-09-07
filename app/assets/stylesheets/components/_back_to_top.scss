@@ -6,7 +6,7 @@
   text-align: center;
   border-radius: 4px;
   position: fixed;
-  bottom: 30px;
+  bottom: 174px;
   right: 30px;
   transition: background-color .3s,
     opacity .5s, visibility .5s;
@@ -34,3 +34,14 @@
 .toptop{
   width: 50px;
 }
+
+.arrow {
+
+    width: 25px;
+    height: 25px;
+    border: 10px solid #C1BDBE;
+    border-left: 0;
+    border-top: 0;
+
+    transform: rotate(225deg);
+  }
