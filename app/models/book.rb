@@ -1,4 +1,5 @@
 class Book < ApplicationRecord
+  paginates_per 10
   belongs_to :user
   has_many :trades, dependent: :destroy, foreign_key: 'seller_book_id'
   has_many :trades, dependent: :destroy, foreign_key: 'buyer_book_id'

@@ -8,8 +8,11 @@
       </div>
     <% else %>
 
-      <div class="row ">
+      <div class="row paginate-index">
           <%= render "card" %>
+      </div>
+      <div class="d-flex justify-content-center mb-4">
+        <%= paginate @books %>
       </div>
     <% end %>
   </div>
