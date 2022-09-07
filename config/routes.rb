@@ -6,11 +6,11 @@ Rails.application.routes.draw do
   post '/build', to: 'books#build', as: "book_build" #alterar para get
 
   resources :books do
+    get '/page/:page', action: :index, on: :collection
     resources :trades, only: [:create]
     collection do
       get :my
     end
-
   end
   resources :books, only: [:show] do
     get :stash

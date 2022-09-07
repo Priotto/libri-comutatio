@@ -4,7 +4,7 @@ class BooksController < ApplicationController
     if params[:query].present?
       @books = Book.search_books(params[:query])
     else
-      @books = Book.available
+      @books = Book.available.page(params[:page])
     end
   end
 
