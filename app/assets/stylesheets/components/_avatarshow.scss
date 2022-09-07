@@ -71,7 +71,21 @@
 }
 
 .btn-page-book{
-  background-color: #FFB200;
+  background-color: #727F86;
+  border-radius: 1rem;
+  border: none;
+  color: white;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.1rem;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.btn-trade{
+  background-color: #23414D;
   border-radius: 1rem;
   border: none;
   color: white;
@@ -184,4 +198,9 @@ padding: 50px 50px;
   align-items: center;
   gap: 0.8rem;
   margin-bottom: 0.5rem;
+}
+
+.icon-show{
+  color: #C1BDBE;
+  font-size: 24px;
 }
