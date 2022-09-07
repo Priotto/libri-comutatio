@@ -107,13 +107,20 @@
 
       <div class="trade-info">
         <div class="star-rating">
-        <% if transaction.reviews.empty? %>
+        <% if transaction.reviews.empty?  %>
           <%= simple_form_for [transaction, @review], data: { controller: "form-submit" } do |f| %>
               <% 5.times do |i| %>
                 <input data-action="click->form-submit#submit" type="radio" name="review[score]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
               <% end %>
               <%= f.button :submit, class: "d-none" %>
           <% end %>
+        <% elsif transaction.reviews.last.receiver != current_user %>
+          <%= simple_form_for [transaction, @review], data: { controller: "form-submit" } do |f| %>
+              <% 5.times do |i| %>
+                <input data-action="click->form-submit#submit" type="radio" name="review[score]" value="<%= i + 1 %>" <%= "checked" if i == 2 %> />
+              <% end %>
+              <%= f.button :submit, class: "d-none" %>
+            <% end %>
         <% else %>
           <% transaction.reviews.last.score.times do %>
             <input type="radio" name="review[score]" value="<%= 1 %>" />
