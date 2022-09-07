@@ -26,6 +26,7 @@ class Books < ApplicationService
       book[:publisher] = element["volumeInfo"]["publisher"]
       book[:synopsis] = element["volumeInfo"]["description"]
       book[:published_date] = element["volumeInfo"]["publishedDate"]
+      book[:rating] = element["volumeInfo"]["averageRating"].nil? ? 0 : element["volumeInfo"]["averageRating"]
       element["volumeInfo"]["imageLinks"].nil? ? book[:thumbnail] = ActionController::Base.helpers.asset_path("dummybook.png") : book[:thumbnail] = element["volumeInfo"]["imageLinks"]["smallThumbnail"]
       books_list.push(book)
     end

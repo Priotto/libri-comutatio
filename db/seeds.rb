@@ -30,7 +30,7 @@ puts 'creating books'
               thumbnail:books.first[:thumbnail],
               published_date: books.first[:published_date],
               synopsis: books.first[:synopsis],
-              rating: 5,
+              rating: books.first[:rating],
               address: address_sort_list.sample,
               # latitude: Faker::Address.latitude,
               # longitude: Faker::Address.longitude,

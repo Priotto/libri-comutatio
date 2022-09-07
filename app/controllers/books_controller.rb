@@ -118,6 +118,6 @@ class BooksController < ApplicationController
   end
 
   def build_params
-    params.permit(book: %i[title author publisher synopsis published_date thumbnail description])
+    params.permit(book: %i[title author publisher synopsis published_date rating thumbnail description])
   end
 end
