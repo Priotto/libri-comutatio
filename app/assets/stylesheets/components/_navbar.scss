@@ -17,6 +17,12 @@
   width: 40px;
 }
 
+.dp {
+  &:hover{
+    transform: rotate(0.5 turn);
+  }
+}
+
 .nav-link{
   margin-right: 10px;
   font-size: 16px;
