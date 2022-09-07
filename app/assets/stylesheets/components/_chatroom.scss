@@ -43,15 +43,21 @@
   border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   background: white;
-  height: 550px;
+  height: calc(100vh - 75px);
   width: 400px;
   padding: 10px;
 
-    p {
+    h6 {
       font-family: $headers-font;
       color: #581B20;
+      font-weight: bold;
+    }
+
+    p {
+      font-family: $body-font;
+      color: #727F86;
     }
 }
