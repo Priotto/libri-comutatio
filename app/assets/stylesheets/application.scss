@@ -14,7 +14,6 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-@import "components/banner";
 
 //Do NOT delete this:
 
@@ -38,7 +37,7 @@ a {
 }
 
 button, input[type="submit"], input[type="reset"] {
-	color: inherit;
+	color: #ffff;
 	border: none;
 	padding: 6px;
 	font: inherit;
@@ -46,4 +45,7 @@ button, input[type="submit"], input[type="reset"] {
 	outline: inherit;
   background-color: #727F86;
 }
-//
+
+.form-control {
+  background-color: #ffff;
+}
