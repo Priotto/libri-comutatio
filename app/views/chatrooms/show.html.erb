@@ -2,11 +2,7 @@
   <div class="trade-chat">
     <img alt="Thumbnail" src= "<%= @chatroom.trade.seller_book.thumbnail %>" style="width: 128px; height: 192px;">
     <h6><%= @chatroom.trade.seller_book.title %></h6>
-    <% if @chatroom.trade.seller.reputation.nil? %>
-      <p><i class="fa-solid fa-star"></i> This user is new</p>
-    <% else %>
-      <p><i class="fa-solid fa-star"></i> <%= @chatroom.trade.seller.reputation %></p>
-    <% end %>
+    <p><%= @chatroom.trade.seller.firstname %></p>
 
     <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
 <lord-icon
@@ -18,11 +14,7 @@
 </lord-icon>
 
     <h6><%= @chatroom.trade.buyer_book.title %></h6>
-        <% if @chatroom.trade.buyer.reputation.nil? %>
-      <p><i class="fa-solid fa-star"></i> This user is new</p>
-    <% else %>
-      <h6><i class="fa-solid fa-star"></i> <%= @chatroom.trade.buyer.reputation %></h6>
-    <% end %>
+    <p><%= @chatroom.trade.buyer.firstname %></p>
     <img alt="Thumbnail" src= "<%= @chatroom.trade.buyer_book.thumbnail %>" style="width: 128px; height: 192px;">
   </div>
 
