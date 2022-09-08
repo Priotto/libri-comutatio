@@ -23,7 +23,7 @@ class BooksController < ApplicationController
       @reputation = 0.0
     else
       scores = reviews.map(&:score)
-      @reputation = scores.inject { |sum, el| (sum + el) }.to_f / reviews.size
+      @reputation = (scores.inject { |sum, el| (sum + el) }.to_f / reviews.size).round(2)
     end
   end
 
