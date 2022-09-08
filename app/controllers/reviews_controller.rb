@@ -11,8 +11,8 @@ class ReviewsController < ApplicationController
     authorize @review
 
     if @review.save
-      flash[:notice] = "Your review was sent!"
       redirect_to trades_path, status: :see_other
+      flash[:notice] = "Your review was sent!"
     else
       flash[:alert] = "Something went wrong!"
       render 'trades/index', status: :unprocessable_entity
