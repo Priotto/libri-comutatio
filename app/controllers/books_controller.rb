@@ -2,7 +2,7 @@ class BooksController < ApplicationController
   def index
     @books = policy_scope(Book)
     if params[:query].present?
-      @books = Book.search_books(params[:query]).page(params[:page])
+      @books = Book.available.search_books(params[:query]).page(params[:page])
     else
       @books = Book.available.page(params[:page])
     end
