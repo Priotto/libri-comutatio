@@ -1,6 +1,6 @@
 <div class="cards-title"><h1 class="banner-title">My Trades</h1></div>
 
-<% if @transactions.empty? %>
+<% if @transactions.empty? || @transactions.nil?%>
   <div class="trade-grid">
     <div class="trade">
       <h3>You don't have an ongoing transaction</h3>
