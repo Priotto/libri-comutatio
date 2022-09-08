@@ -18,8 +18,8 @@
               <div class="mb-1 text-muted small"><%= book.user.full_name %></div>
                 <p class="card-text mb-auto"><%= book.synopsis.truncate(160) %></p>
                 <div class="d-inline-flex">
-                  <%= link_to "Edit", edit_book_path(book), :method => :edit, class: "btn btn-primary mr-5" %>
-                  <%= link_to "Delete", book_path(book), :method => :delete, data: {:confirm => "You sure?" , :turbo_method => :delete, :turbo => true}, class: "btn mr-5 btn-danger btn-sm" %>
+                  <%= link_to "Edit", edit_book_path(book), :method => :edit, class: "btn btn-primary mr-5 btn-rounded" %>
+                  <%= link_to "Delete", book_path(book), :method => :delete, data: {:confirm => "You sure?" , :turbo_method => :delete, :turbo => true}, class: "btn mr-5 btn-danger btn-sm btn-rounded" %>
                 </div>
               </div>
               <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]" src=<%= book.thumbnail %> style="width: 200px; height: 250px;">
