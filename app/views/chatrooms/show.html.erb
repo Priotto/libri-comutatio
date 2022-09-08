@@ -1,7 +1,7 @@
 <div class="chatroom-container">
   <div class="trade-chat">
     <img alt="Thumbnail" src= "<%= @chatroom.trade.seller_book.thumbnail %>" style="width: 128px; height: 192px;">
-    <h6><%= @chatroom.trade.seller_book.title %></h6>
+    <h6><%= @chatroom.trade.seller_book.title.truncate(25) %></h6>
     <p><%= @chatroom.trade.seller.firstname %></p>
 
     <script src="https://cdn.lordicon.com/xdjxvujz.js"></script>
@@ -13,7 +13,7 @@
     style="width:30px; height:30px; margin-bottom: 12px;">
 </lord-icon>
 
-    <h6><%= @chatroom.trade.buyer_book.title %></h6>
+    <h6><%= @chatroom.trade.buyer_book.title.truncate(25) %></h6>
     <p><%= @chatroom.trade.buyer.firstname %></p>
     <img alt="Thumbnail" src= "<%= @chatroom.trade.buyer_book.thumbnail %>" style="width: 128px; height: 192px;">
   </div>

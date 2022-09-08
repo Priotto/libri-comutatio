@@ -1,7 +1,7 @@
 <div class="mt-5 col-12">
   <div class = "card-book-allinfo-show">
     <div class="image-associated-with-info">
-      <h1><%= @book.title %></h1>
+      <h1><%= @book.title.truncate(55) %></h1>
       <div class="book-card-show">
         <div class="book-img-show">
           <img src="<%= @book.thumbnail %>" width="250" height="372" alt="">
